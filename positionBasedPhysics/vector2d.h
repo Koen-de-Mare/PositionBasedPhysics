@@ -12,14 +12,14 @@ class vector2D {
         unit getX() const;
         unit getY() const;
         void normalize();
-        void setX(const unit&);
-        void setY(const unit&);
-        void set(const unit&, const unit&);
-        vector2D operator+ (const vector2D&);
-        vector2D operator - (const vector2D&);
-        vector2D operator * (const unit&);
-        vector2D operator / (const unit&);
-        void operator = (const vector2D&);
+        void setX(const unit& newX);
+        void setY(const unit& newY);
+        void set(const unit& newX, const unit& newY);
+        vector2D operator+ (const vector2D& otherVector);
+        vector2D operator - (const vector2D& otherVector);
+        vector2D operator * (const unit& factor);
+        vector2D operator / (const unit& factor);
+        void operator = (const vector2D& newValue);
     protected:
     private:
         unit x;
