@@ -1,12 +1,18 @@
 # depslib dependency file v1.0
-1419964399 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\main.cpp
+1419967983 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\main.cpp
 	<iostream>
-	"vector2d.h"
+	"vector3d.h"
 
-1419964156 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\vector2d.h
+1419965776 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\vector2d.h
 	<cmath>
 
-1419964866 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\vector2d.cpp
+1419966545 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\vector2d.cpp
 	"vector2d.h"
+
+1419967376 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\vector3d.h
+	<cmath>
+
+1419968117 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\vector3d.cpp
+	"vector3d.h"
 	<iostream>
 

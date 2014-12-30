@@ -1,9 +1,5 @@
 #include "vector2d.h"
 
-#include <iostream>
-
-using namespace std;
-
 vector2D::vector2D(unit newX, unit newY) {
     x = newX;
     y = newY;
@@ -20,7 +16,6 @@ unit vector2D::getLength() const {
 
 void vector2D::normalize() {
     *this = *this / (getLength());
-    //operator/(getLength());
 }
 
 vector2D vector2D::operator+ (const vector2D& otherVector) {
