@@ -1,18 +1,34 @@
 # depslib dependency file v1.0
-1419967983 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\main.cpp
+1420061269 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\main.cpp
 	<iostream>
-	"vector3d.h"
+	"worldstate.h"
 
 1419965776 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\vector2d.h
 	<cmath>
 
-1419966545 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\vector2d.cpp
+1419968213 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\vector2d.cpp
 	"vector2d.h"
 
 1419967376 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\vector3d.h
 	<cmath>
 
-1419968117 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\vector3d.cpp
+1419968220 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\vector3d.cpp
 	"vector3d.h"
-	<iostream>
+
+1420062909 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\worldstate.h
+	"particle.h"
+
+1420060907 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\particle.h
+	"vector2d.h"
+
+1420061138 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\particle.cpp
+	"particle.h"
+
+1420059644 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\simulator.cpp
+	"simulator.h"
+
+1420059644 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\simulator.h
+
+1420062249 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\worldstate.cpp
+	"worldstate.h"
 
