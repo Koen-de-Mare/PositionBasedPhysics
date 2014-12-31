@@ -33,10 +33,16 @@
 			<Add option="-fexceptions" />
 		</Compiler>
 		<Unit filename="main.cpp" />
+		<Unit filename="particle.cpp" />
+		<Unit filename="particle.h" />
+		<Unit filename="simulator.cpp" />
+		<Unit filename="simulator.h" />
 		<Unit filename="vector2d.cpp" />
 		<Unit filename="vector2d.h" />
 		<Unit filename="vector3d.cpp" />
 		<Unit filename="vector3d.h" />
+		<Unit filename="worldstate.cpp" />
+		<Unit filename="worldstate.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
