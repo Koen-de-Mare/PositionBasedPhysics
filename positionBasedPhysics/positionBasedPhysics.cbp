@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="constraint.cpp" />
+		<Unit filename="constraint.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="particle.cpp" />
 		<Unit filename="particle.h" />
