@@ -10,13 +10,14 @@ class particle {
     public:
         particle();
         virtual ~particle();
-        vector getPosition();
-        vector getVelocity();
-        vector getAcceleration();
+        vector getPosition() const;
+        vector getVelocity() const;
+        vector getAcceleration() const;
         void setPosition(vector newPosition);
         void setVelocity(vector newVelocity);
         void setAcceleration(vector newAcceleration);
         void clear();
+        void operator = (const particle& newValue);
     protected:
     private:
         vector position;

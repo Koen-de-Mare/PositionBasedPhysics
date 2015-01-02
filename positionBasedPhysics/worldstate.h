@@ -6,7 +6,7 @@
 #include "constraint.h"
 
 #define particlePoolSize_ 20
-#define softForcePoolSize_ 20
+#define softforcePoolSize_ 20
 #define constraintPoolSize_ 20
 
 class particle;
@@ -21,11 +21,15 @@ class worldstate {
         virtual ~worldstate();
 
         particle* getParticle(int index);
-        softforce* getSoftForce(int index);
+        softforce* getSoftforce(int index);
         constraint* getConstraint(int index);
 
+        int addParticle(particle newParticle);
+        bool addSoftforce(softforce* newSoftforce);
+        bool addConstraint(constraint* newConstraint);
+
         void removeParticle(int index);
-        void removeSoftForce(int index);
+        void removeSoftforce(int index);
         void removeConstraint(int index);
 
         particle* getParticlePool();
@@ -33,12 +37,12 @@ class worldstate {
     protected:
     private:
         const int particlePoolSize = particlePoolSize_;
-        const int softForcePoolSize = softForcePoolSize_;
+        const int softforcePoolSize = softforcePoolSize_;
         const int constraintPoolSize = constraintPoolSize_;
 
         bool particlePoolFlag [particlePoolSize_];
         particle particlePool [particlePoolSize_];
-        softforce* softForcePool [softForcePoolSize_];
+        softforce* softforcePool [softforcePoolSize_];
         constraint* constraintPool [constraintPoolSize_];
 };
 

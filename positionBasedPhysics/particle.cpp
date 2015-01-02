@@ -8,15 +8,15 @@ particle::~particle() {
     delete &position;
 }
 
-vector particle::getPosition() {
+vector particle::getPosition() const {
     return position;
 }
 
-vector particle::getVelocity(){
+vector particle::getVelocity() const {
     return velocity;
 }
 
-vector particle::getAcceleration() {
+vector particle::getAcceleration() const {
     return acceleration;
 }
 
@@ -36,4 +36,10 @@ void particle::clear() {
     position.clear();
     velocity.clear();
     acceleration.clear();
+}
+
+void particle::operator=(const particle& newValue) {
+    position = newValue.getPosition();
+    velocity = newValue.getVelocity();
+    acceleration = newValue.getAcceleration();
 }
