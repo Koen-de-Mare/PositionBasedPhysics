@@ -42,6 +42,20 @@ int worldstate::getParticlePoolSize() {
 }
 
 void worldstate::removeParticle(int index) {
+    //remove all soft forces related to this particle;
+    for (int i = 0; i < softForcePoolSize; i++) {
+        if (softForcePool[i].getUsingParticle(index)) {
+            removeSoftForce(i);
+        }
+    }
+
+    //remove all constraints related to this particle;
+    for (int i = 0; i < constraintPoolSize; i++) {
+        if (constraintPool[i].getUsingParticle(index)) {
+            removeConstraint(i);
+        }
+    }
+
     if (index >= 0 && index < particlePoolSize) {
         particlePoolFlag[index] = false;
         particlePool[index].clear();

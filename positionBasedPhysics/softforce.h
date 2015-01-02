@@ -8,6 +8,7 @@ class softforce {
         softforce(worldstate* newMyWorldState);
         virtual ~softforce();
         virtual void applyForce() =0;
+        virtual bool getUsingParticle(int index) =0;
     protected:
     private:
         worldstate* myWorldState;

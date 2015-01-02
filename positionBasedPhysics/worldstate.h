@@ -16,14 +16,18 @@ class constraint;
 class worldstate {
     public:
         const worldstate* ME = this;
+
         worldstate();
         virtual ~worldstate();
+
         particle* getParticle(int index);
         softforce* getSoftForce(int index);
         constraint* getConstraint(int index);
+
         void removeParticle(int index);
         void removeSoftForce(int index);
         void removeConstraint(int index);
+
         particle* getParticlePool();
         int getParticlePoolSize();
     protected:
@@ -31,6 +35,7 @@ class worldstate {
         const int particlePoolSize = particlePoolSize_;
         const int softForcePoolSize = softForcePoolSize_;
         const int constraintPoolSize = constraintPoolSize_;
+
         bool particlePoolFlag [particlePoolSize_];
         particle particlePool [particlePoolSize_];
         softforce* softForcePool [softForcePoolSize_];
