@@ -1,9 +1,9 @@
 #include "constraint.h"
 
-constraint::constraint() {
-    //ctor
+constraint::constraint(worldstate* newMyWorldState) {
+    myWorldState = newMyWorldState;
 }
 
 constraint::~constraint() {
-    //dtor
+    delete &myWorldState;
 }

@@ -71,3 +71,9 @@ void vector3D::set(const unit& newX, const unit& newY, const unit& newZ) {
     y = (unit)newY;
     z = (unit)newZ;
 }
+
+void vector3D::clear() {
+    x = 0;
+    y = 0;
+    z = 0;
+}

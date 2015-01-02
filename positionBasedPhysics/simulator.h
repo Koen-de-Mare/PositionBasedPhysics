@@ -8,6 +8,9 @@ class simulator {
         simulator();
         virtual ~simulator();
         worldstate simulate(worldstate world, float deltaTime);
+        void setFullIterationsNumber(int newFullIterationsNumber);
+        void setProjectionIterationsNumber(int newProjectionIterationsNumber);
+        void setRelaxationIterationsNumber(int newRelaxationIterationsNumber);
     protected:
     private:
         int fullIterationsNumber = 1;

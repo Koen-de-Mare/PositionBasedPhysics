@@ -59,3 +59,8 @@ void vector2D::set(const unit& newX, const unit& newY) {
     x = (unit)newX;
     y = (unit)newY;
 }
+
+void vector2D::clear() {
+    x = 0;
+    y = 0;
+}

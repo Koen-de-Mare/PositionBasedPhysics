@@ -9,11 +9,10 @@ class worldstate;
 
 class constraint {
     public:
-        constraint();
+        constraint(worldstate* newMyWorldState);
         virtual ~constraint();
-        virtual void resolveConstraint() {
-            std::cout << "resolving constraint" << std::endl;
-        }
+        virtual void resolveConstraint() =0;
+        virtual bool getUsingParticle(int index) =0;
     protected:
     private:
         worldstate* myWorldState;

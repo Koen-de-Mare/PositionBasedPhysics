@@ -39,6 +39,8 @@
 		<Unit filename="particle.h" />
 		<Unit filename="simulator.cpp" />
 		<Unit filename="simulator.h" />
+		<Unit filename="softforce.cpp" />
+		<Unit filename="softforce.h" />
 		<Unit filename="vector2d.cpp" />
 		<Unit filename="vector2d.h" />
 		<Unit filename="vector3d.cpp" />

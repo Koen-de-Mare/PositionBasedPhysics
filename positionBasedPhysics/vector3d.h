@@ -17,6 +17,7 @@ class vector3D {
         void setY(const unit& newY);
         void setZ(const unit& newZ);
         void set(const unit& newX, const unit& newY, const unit& newZ);
+        void clear();
         vector3D operator+ (const vector3D& otherVector);
         vector3D operator - (const vector3D& otherVector);
         vector3D operator * (const unit& factor);
