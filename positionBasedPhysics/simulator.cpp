@@ -21,6 +21,7 @@ simulator::~simulator() {
 }
 
 void simulator::simulate(worldstate* providedWorld, timeUnit deltaTime) {
+    /*
     world = providedWorld;
 
     particlePoolSize = world->getParticlePoolSize();
@@ -33,6 +34,7 @@ void simulator::simulate(worldstate* providedWorld, timeUnit deltaTime) {
         t0[i] = *(world->getParticle(i));
         tP[i] = *(world->getParticle(i));
     }
+    */
 
     timeUnit tempTime = deltaTime / projectionIterationsNumber;
 

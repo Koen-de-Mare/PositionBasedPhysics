@@ -38,10 +38,12 @@ class worldstate {
         const int softforcePoolSize = softforcePoolSize_;
         const int constraintPoolSize = constraintPoolSize_;
 
+        /*          //THIS IS THE PLACE WHERE EVERYTIHG GOES WRONG!!!
         bool particlePoolFlag [particlePoolSize_];
         particle particlePool [particlePoolSize_];
         softforce* softforcePool [softforcePoolSize_];
         constraint* constraintPool [constraintPoolSize_];
+        //*/
 };
 
 #endif // WORLDSTATE_H
