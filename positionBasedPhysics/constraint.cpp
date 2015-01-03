@@ -1,9 +1,13 @@
 #include "constraint.h"
 
-constraint::constraint(worldstate* newMyWorldState) {
-    myWorldState = newMyWorldState;
+constraint::constraint() {
+
 }
 
 constraint::~constraint() {
-    delete &myWorldState;
+
+}
+
+unit constraint::getDistance(const particle& particle1, const particle& particle2) const {
+    return (particle1.getPosition() - particle2.getPosition()).getLength();
 }

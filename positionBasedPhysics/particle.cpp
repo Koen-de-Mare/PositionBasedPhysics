@@ -20,15 +20,15 @@ vector particle::getAcceleration() const {
     return acceleration;
 }
 
-void particle::setPosition(vector newPosition) {
+void particle::setPosition(const vector& newPosition) {
     position = newPosition;
 }
 
-void particle::setVelocity(vector newVelocity) {
+void particle::setVelocity(const vector& newVelocity) {
     velocity = newVelocity;
 }
 
-void particle::setAcceleration(vector newAcceleration) {
+void particle::setAcceleration(const vector& newAcceleration) {
     acceleration = newAcceleration;
 }
 

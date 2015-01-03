@@ -7,7 +7,8 @@ using namespace std;
 int main() {
     cout << "Hello, world!" << endl;
 
-    worldstate myWorldState ();
+    worldstate myWorldState;
+    delete &myWorldState;
 
     return 0;
 }

@@ -16,7 +16,13 @@ worldstate::worldstate() {
 
 worldstate::~worldstate() {
     //delete the data referenced to by softForcePool and constraintPool as these arrays contain pointers
-    //...
+    for (int i = 0; i < softforcePoolSize; i++) {
+        delete softforcePool[i];
+    }
+
+    for (int i = 0; i < constraintPoolSize; i++) {
+        delete constraintPool[i];
+    }
 
     delete[] &particlePool;
     delete[] &softforcePool;
@@ -27,7 +33,7 @@ worldstate::~worldstate() {
     delete &constraintPoolSize;
 }
 
-particle* worldstate::getParticle(int index) {
+particle* worldstate::getParticle(const int& index) {
     if (particlePoolFlag == false) {
         return nullptr;
     } else {
@@ -35,11 +41,11 @@ particle* worldstate::getParticle(int index) {
     }
 }
 
-softforce* worldstate::getSoftforce(int index) {
+softforce* worldstate::getSoftforce(const int& index) {
     return softforcePool[index];
 }
 
-constraint* worldstate::getConstraint(int index) {
+constraint* worldstate::getConstraint(const int& index) {
     return constraintPool[index];
 }
 
@@ -51,7 +57,7 @@ int worldstate::getParticlePoolSize() {
     return particlePoolSize;
 }
 
-void worldstate::removeParticle(int index) {
+void worldstate::removeParticle(const int& index) {
     //remove all soft forces related to this particle;
     for (int i = 0; i < softforcePoolSize; i++) {
         if (softforcePool[i]->getUsingParticle(index)) {
@@ -72,21 +78,21 @@ void worldstate::removeParticle(int index) {
     }
 }
 
-void worldstate::removeSoftforce(int index) {
+void worldstate::removeSoftforce(const int& index) {
     if (index >= 0 && index < softforcePoolSize) {
         delete softforcePool[index];
         softforcePool[index] = nullptr;
     }
 }
 
-void worldstate::removeConstraint(int index) {
+void worldstate::removeConstraint(const int& index) {
     if (index >= 0 && index < constraintPoolSize) {
         delete constraintPool[index];
         constraintPool[index] = nullptr;
     }
 }
 
-int worldstate::addParticle(particle newParticle) {
+int worldstate::addParticle(const particle& newParticle) {
     for (int index = 0; index < particlePoolSize; index++) {
         if (particlePoolFlag[index] == false) {
             particlePool[index] = newParticle;
@@ -97,7 +103,7 @@ int worldstate::addParticle(particle newParticle) {
     return -1;
 }
 
-bool worldstate::addSoftforce(softforce* newSoftforce) {
+bool worldstate::addSoftforce(softforce* const newSoftforce) {
     for (int index; index < softforcePoolSize; index++) {
         if (softforcePool[index] == nullptr) {
             softforcePool[index] = newSoftforce;
@@ -107,7 +113,7 @@ bool worldstate::addSoftforce(softforce* newSoftforce) {
     return false;
 }
 
-bool worldstate::addConstraint(constraint* newConstraint) {
+bool worldstate::addConstraint(constraint* const newConstraint) {
     for (int index; index < constraintPoolSize; index++) {
         if (constraintPool[index] == nullptr) {
             constraintPool[index] = newConstraint;

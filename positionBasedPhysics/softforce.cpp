@@ -1,9 +1,17 @@
 #include "softforce.h"
 
-softforce::softforce(worldstate* newMyWorldState) {
-    myWorldState = newMyWorldState;
+softforce::softforce() {
+
 }
 
 softforce::~softforce() {
-    delete &myWorldState;
+
+}
+
+unit softforce::getDistance(const int& index1, const int& index2) {
+
+}
+
+void softforce::applyForce(const int& index, const vector& force) {
+
 }
