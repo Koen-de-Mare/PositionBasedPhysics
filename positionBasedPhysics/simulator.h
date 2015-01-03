@@ -3,15 +3,28 @@
 
 #include "worldstate.h"
 
+using timeUnit = float;
+
 class simulator {
     public:
         simulator();
         virtual ~simulator();
-        worldstate simulate(worldstate world, float deltaTime);
+        void simulate(worldstate* providedWorld, timeUnit deltaTime);
         void setFullIterationsNumber(int newFullIterationsNumber);
         void setProjectionIterationsNumber(int newProjectionIterationsNumber);
         void setRelaxationIterationsNumber(int newRelaxationIterationsNumber);
     protected:
+        worldstate* world;
+
+        void project(timeUnit deltaTime);
+        void Relax();
+        void integrate(timeUnit deltaTime);
+
+        particle* t0;
+        particle* tP;
+        particle* t1;
+
+        int particlePoolSize;
     private:
         int fullIterationsNumber = 1;
         int projectionIterationsNumber = 1;

@@ -15,8 +15,6 @@ class constraint;
 
 class worldstate {
     public:
-        const worldstate* ME = this;
-
         worldstate();
         virtual ~worldstate();
 
@@ -33,7 +31,7 @@ class worldstate {
         void removeConstraint(const int& index);
 
         particle* getParticlePool();
-        int getParticlePoolSize();
+        int getParticlePoolSize() const;
     protected:
     private:
         const int particlePoolSize = particlePoolSize_;
