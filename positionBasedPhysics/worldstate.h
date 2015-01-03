@@ -32,18 +32,18 @@ class worldstate {
 
         particle* getParticlePool();
         int getParticlePoolSize() const;
+
+        void operator = (const worldstate& newValue);
     protected:
     private:
         const int particlePoolSize = particlePoolSize_;
         const int softforcePoolSize = softforcePoolSize_;
         const int constraintPoolSize = constraintPoolSize_;
 
-        /*          //THIS IS THE PLACE WHERE EVERYTIHG GOES WRONG!!!
         bool particlePoolFlag [particlePoolSize_];
         particle particlePool [particlePoolSize_];
         softforce* softforcePool [softforcePoolSize_];
         constraint* constraintPool [constraintPoolSize_];
-        //*/
 };
 
 #endif // WORLDSTATE_H

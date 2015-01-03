@@ -5,23 +5,10 @@ simulator::simulator() {
 }
 
 simulator::~simulator() {
-    delete[] t0;
-    delete[] tP;
-    delete[] t1;
 
-    delete &t0;
-    delete &tP;
-    delete &t1;
-
-    delete &particlePoolSize;
-
-    delete &fullIterationsNumber;
-    delete &projectionIterationsNumber;
-    delete &relaxationIterationsNumber;
 }
 
 void simulator::simulate(worldstate* providedWorld, timeUnit deltaTime) {
-    /*
     world = providedWorld;
 
     particlePoolSize = world->getParticlePoolSize();
@@ -34,7 +21,6 @@ void simulator::simulate(worldstate* providedWorld, timeUnit deltaTime) {
         t0[i] = *(world->getParticle(i));
         tP[i] = *(world->getParticle(i));
     }
-    */
 
     timeUnit tempTime = deltaTime / projectionIterationsNumber;
 

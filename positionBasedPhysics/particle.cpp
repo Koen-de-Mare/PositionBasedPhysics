@@ -5,7 +5,7 @@ particle::particle() {
 }
 
 particle::~particle() {
-    delete &position;
+
 }
 
 vector particle::getPosition() const {

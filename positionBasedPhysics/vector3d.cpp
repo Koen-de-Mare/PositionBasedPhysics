@@ -6,10 +6,14 @@ vector3D::vector3D(unit newX, unit newY, unit newZ) {
     z = newZ;
 }
 
+vector3D::vector3D() {
+    x = 0;
+    y = 0;
+    z = 0;
+}
+
 vector3D::~vector3D() {
-    delete &x;
-    delete &y;
-    delete &z;
+
 }
 
 unit vector3D::getLength() const {

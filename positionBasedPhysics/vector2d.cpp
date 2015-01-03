@@ -5,9 +5,13 @@ vector2D::vector2D(unit newX, unit newY) {
     y = newY;
 }
 
+vector2D::vector2D() {
+    x = 0;
+    y = 0;
+}
+
 vector2D::~vector2D() {
-    delete &x;
-    delete &y;
+
 }
 
 unit vector2D::getLength() const {

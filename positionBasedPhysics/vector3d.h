@@ -6,7 +6,8 @@ using unit = double;
 
 class vector3D {
     public:
-        vector3D(unit newX = 0, unit newY = 0, unit newZ = 0);
+        vector3D(unit newX, unit newY, unit newZ);
+        vector3D();
         ~vector3D();
         unit getLength() const;
         unit getX() const;

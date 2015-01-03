@@ -1,7 +1,6 @@
 #include "worldstate.h"
 
 worldstate::worldstate() {
-    /*
     for (int index = 0; index < particlePoolSize; index++) {
         particlePoolFlag[index] = false;
     }
@@ -13,12 +12,10 @@ worldstate::worldstate() {
     for (int index = 0; index < constraintPoolSize; index++) {
         constraintPool[index] = nullptr;
     }
-    */
 }
 
 worldstate::~worldstate() {
     //delete the data referenced to by softForcePool and constraintPool as these arrays contain pointers
-    /*
     for (int i = 0; i < softforcePoolSize; i++) {
         delete softforcePool[i];
     }
@@ -26,17 +23,8 @@ worldstate::~worldstate() {
     for (int i = 0; i < constraintPoolSize; i++) {
         delete constraintPool[i];
     }
-
-    delete[] &particlePool;
-    delete[] &softforcePool;
-    delete[] &constraintPool;
-
-    delete &particlePoolSize;
-    delete &softforcePoolSize;
-    delete &constraintPoolSize;
-    */
 }
-/*
+
 particle* worldstate::getParticle(const int& index) {
     if (index < 0 || index >= particlePoolSize) {
         return nullptr;
@@ -135,4 +123,8 @@ bool worldstate::addConstraint(constraint* const newConstraint) {
     }
     return false;
 }
-*/
+
+void worldstate::operator=(const worldstate& newValue) {
+
+}
+
