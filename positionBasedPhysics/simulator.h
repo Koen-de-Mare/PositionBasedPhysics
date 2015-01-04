@@ -10,6 +10,7 @@ class simulator {
         simulator();
         virtual ~simulator();
         void simulate(worldstate* providedWorld, timeUnit deltaTime);
+        void virtualSimulate(worldstate* providedWorld, timeUnit deltaTime);
         void setFullIterationsNumber(int newFullIterationsNumber);
         void setProjectionIterationsNumber(int newProjectionIterationsNumber);
         void setRelaxationIterationsNumber(int newRelaxationIterationsNumber);

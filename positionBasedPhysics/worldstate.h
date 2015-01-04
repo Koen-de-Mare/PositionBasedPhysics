@@ -31,7 +31,10 @@ class worldstate {
         void removeConstraint(const int& index);
 
         particle* getParticlePool();
+
         int getParticlePoolSize() const;
+        int getSoftforcePoolSize() const;
+        int getConstraintPoolSize() const;
 
         void operator = (const worldstate& newValue);
     protected:

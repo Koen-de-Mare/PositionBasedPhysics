@@ -58,6 +58,14 @@ int worldstate::getParticlePoolSize() const {
     return particlePoolSize;
 }
 
+int worldstate::getSoftforcePoolSize() const {
+    return softforcePoolSize;
+}
+
+int worldstate::getConstraintPoolSize() const {
+    return constraintPoolSize;
+}
+
 void worldstate::removeParticle(const int& index) {
     //remove all soft forces related to this particle;
     for (int i = 0; i < softforcePoolSize; i++) {

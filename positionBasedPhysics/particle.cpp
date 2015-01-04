@@ -1,6 +1,7 @@
 #include "particle.h"
 
-particle::particle() {
+particle::particle(float newMass) {
+    mass = newMass;
     clear();
 }
 
@@ -19,6 +20,11 @@ vector particle::getVelocity() const {
 vector particle::getAcceleration() const {
     return acceleration;
 }
+
+float particle::getMass() const {
+    return mass;
+}
+
 
 void particle::setPosition(const vector& newPosition) {
     position = newPosition;

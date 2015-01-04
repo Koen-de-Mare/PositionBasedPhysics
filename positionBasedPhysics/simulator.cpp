@@ -9,13 +9,21 @@ simulator::~simulator() {
 }
 
 void simulator::simulate(worldstate* providedWorld, timeUnit deltaTime) {
+    timeUnit tempTime = deltaTime / fullIterationsNumber;
+
+    for (int i = 0; i < projectionIterationsNumber; i++) {
+        virtualSimulate(providedWorld, tempTime);
+    }
+}
+
+void simulator::virtualSimulate(worldstate* providedWorld, timeUnit deltaTime) {
     world = providedWorld;
 
     particlePoolSize = world->getParticlePoolSize();
 
-    t0 = new particle [particlePoolSize];
-    tP = new particle [particlePoolSize];
-    t1 = new particle [particlePoolSize];
+    t0 = new particle [particlePoolSize];       //initial state
+    tP = new particle [particlePoolSize];       //state after projection
+    t1 = new particle [particlePoolSize];       //final state
 
     for (int i = 0; i < particlePoolSize; i++) {
         t0[i] = *(world->getParticle(i));
@@ -71,7 +79,7 @@ void simulator::project(timeUnit deltaTime) {   //writes results to tP
 
 }
 
-void simulator::Relax() {                       //writes results to t1
+void simulator::Relax() {                       //writes results to t1 or *(world->getParticle())
 
 }
 
