@@ -24,6 +24,7 @@ class simulator {
         particle* t0;
         particle* tP;
         particle* t1;
+        particle* tBuffer;
 
         int particlePoolSize;
     private:

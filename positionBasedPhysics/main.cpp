@@ -1,6 +1,7 @@
 #include <iostream>
 
 #include "worldstate.h"
+#include "simulator.h"
 
 using namespace std;
 
@@ -12,10 +13,15 @@ int main() {
     cout << "Hello, world!" << endl;
 
     worldstate* myWorldState = new worldstate();
+    simulator* mySimulator = new simulator();
+
     delete myWorldState;
     myWorldState = nullptr;
 
-    cout << endl << "finished!";
+    delete mySimulator;
+    mySimulator = nullptr;
+
+    cout << endl << "finished!" << endl;
 
     return 0;
 }

@@ -8,10 +8,10 @@ softforce::~softforce() {
 
 }
 
-unit softforce::getDistance(const int& index1, const int& index2) {
-
+inline unit softforce::getDistance(const particle* particle1, const particle* particle2) const {
+    return (particle1->getPosition() - particle2->getPosition()).getLength();
 }
 
-void softforce::applyForce(const int& index, const vector& force) {
+inline void softforce::applyForce(const particle* particle1, const vector& force) {
 
 }

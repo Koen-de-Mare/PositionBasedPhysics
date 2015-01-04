@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1420369841 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\main.cpp
+1420396002 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\main.cpp
 	<iostream>
 	"worldstate.h"
+	"simulator.h"
 
 1420322371 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\vector2d.h
 	<cmath>
@@ -29,25 +30,25 @@
 1420370520 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\simulator.cpp
 	"simulator.h"
 
-1420370343 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\simulator.h
+1420395929 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\simulator.h
 	"worldstate.h"
 
 1420370130 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\worldstate.cpp
 	"worldstate.h"
 
-1420285397 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\constraint.h
+1420397641 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\constraint.h
 	<math.h>
 	"particle.h"
 	"vector2d.h"
 
-1420285397 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\constraint.cpp
+1420395730 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\constraint.cpp
 	"constraint.h"
 
-1420286689 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\softforce.h
+1420397641 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\softforce.h
 	<math.h>
 	"particle.h"
 	"vector2d.h"
 
-1420286705 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\softforce.cpp
+1420395730 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\softforce.cpp
 	"softforce.h"
 

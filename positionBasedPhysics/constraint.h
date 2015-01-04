@@ -14,11 +14,12 @@ class constraint {
     public:
         constraint();
         virtual ~constraint();
-        virtual void resolveConstraint() =0;
+        virtual void resolveConstraint(particle* inBuffer, particle* outBuffer, int particlePoolSize) =0;
         virtual bool getUsingParticle(const int& index) const =0;
     protected:
         //subclass sandbox:
-        inline unit getDistance(const particle& particle1, const particle& particle2) const;
+        inline unit getDistance(const particle* particle1, const particle* particle2) const;
+        inline void displace(const particle* particle1, const vector& displacement);
     private:
 };
 

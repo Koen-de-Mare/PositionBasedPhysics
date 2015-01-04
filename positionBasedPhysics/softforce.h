@@ -7,6 +7,7 @@
 #include "vector2d.h"
 //#include "vector3d.h"
 
+using timeUnit = float;
 using unit = double;
 using vector = vector2D;
 
@@ -14,12 +15,12 @@ class softforce {
     public:
         softforce();
         virtual ~softforce();
-        virtual void applyForce() =0;
+        virtual void applySoftforce(particle* inBuffer, particle* outBuffer, int particlePoolSize, timeUnit deltaTime) =0;
         virtual bool getUsingParticle(const int& index) const =0;
     protected:
         //subclass sandbox:
-        inline unit getDistance(const int& index1, const int& index2);
-        inline void applyForce(const int& index, const vector& force);
+        inline unit getDistance(const particle* particle1, const particle* particle2) const;
+        inline void applyForce(const particle* particle1, const vector& force);
     private:
 };
 
