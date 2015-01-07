@@ -1,7 +1,7 @@
 #include <iostream>
 
-#include "worldstate.h"
-#include "simulator.h"
+#include "classes/worldstate.h"
+#include "classes/simulator.h"
 
 using namespace std;
 

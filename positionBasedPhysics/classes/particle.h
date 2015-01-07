@@ -1,8 +1,8 @@
 #ifndef PARTICLE_H
 #define PARTICLE_H
 
-#include "vector2d.h"
-//#include "vector3d.h"
+#include "vector/vector2d.h"
+//#include "vector/vector3d.h"
 
 using vector = vector2D;
 

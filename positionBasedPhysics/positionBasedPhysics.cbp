@@ -13,6 +13,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
+					<Add directory="classes" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -32,21 +33,21 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="constraint.cpp" />
-		<Unit filename="constraint.h" />
+		<Unit filename="classes/constraints/constraint.cpp" />
+		<Unit filename="classes/constraints/constraint.h" />
+		<Unit filename="classes/particle.cpp" />
+		<Unit filename="classes/particle.h" />
+		<Unit filename="classes/simulator.cpp" />
+		<Unit filename="classes/simulator.h" />
+		<Unit filename="classes/softforces/softforce.cpp" />
+		<Unit filename="classes/softforces/softforce.h" />
+		<Unit filename="classes/vector/vector2d.cpp" />
+		<Unit filename="classes/vector/vector2d.h" />
+		<Unit filename="classes/vector/vector3d.cpp" />
+		<Unit filename="classes/vector/vector3d.h" />
+		<Unit filename="classes/worldstate.cpp" />
+		<Unit filename="classes/worldstate.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="particle.cpp" />
-		<Unit filename="particle.h" />
-		<Unit filename="simulator.cpp" />
-		<Unit filename="simulator.h" />
-		<Unit filename="softforce.cpp" />
-		<Unit filename="softforce.h" />
-		<Unit filename="vector2d.cpp" />
-		<Unit filename="vector2d.h" />
-		<Unit filename="vector3d.cpp" />
-		<Unit filename="vector3d.h" />
-		<Unit filename="worldstate.cpp" />
-		<Unit filename="worldstate.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

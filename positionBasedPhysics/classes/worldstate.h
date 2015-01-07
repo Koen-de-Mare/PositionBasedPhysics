@@ -2,8 +2,8 @@
 #define WORLDSTATE_H
 
 #include "particle.h"
-#include "softforce.h"
-#include "constraint.h"
+#include "softforces/softforce.h"
+#include "constraints/constraint.h"
 
 #define particlePoolSize_ 20
 #define softforcePoolSize_ 20
