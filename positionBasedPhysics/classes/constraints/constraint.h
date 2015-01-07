@@ -16,6 +16,7 @@ class constraint {
         virtual ~constraint();
         virtual void resolveConstraint(particle* const inBuffer, particle* outBuffer, int particlePoolSize) =0;
         virtual bool getUsingParticle(const int& index) const =0;
+        virtual void changeIndex(const int& oldIndex, const int& newIndex) =0;
     protected:
         //subclass sandbox:
         inline unit getDistance(const particle* particle1, const particle* particle2) const;

@@ -9,6 +9,8 @@ class distanceconstraint : public constraint {
         distanceconstraint(const int& newParticle1, const int& newParticle2, const unit& newLength, const int& newType);
         virtual ~distanceconstraint();
         void resolveConstraint(particle* const inBuffer, particle* outBuffer, int particlePoolSize);
+        virtual bool getUsingParticle(const int& index) const;
+        virtual void changeIndex(const int& oldIndex, const int& newIndex);
     protected:
     private:
         enum type {

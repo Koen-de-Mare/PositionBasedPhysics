@@ -14,6 +14,7 @@
 				<Compiler>
 					<Add option="-g" />
 					<Add directory="classes" />
+					<Add directory="classes/constraints" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -23,6 +24,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add directory="classes/constraints" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -35,6 +37,8 @@
 		</Compiler>
 		<Unit filename="classes/constraints/constraint.cpp" />
 		<Unit filename="classes/constraints/constraint.h" />
+		<Unit filename="classes/constraints/distanceconstraint.cpp" />
+		<Unit filename="classes/constraints/distanceconstraint.h" />
 		<Unit filename="classes/particle.cpp" />
 		<Unit filename="classes/particle.h" />
 		<Unit filename="classes/simulator.cpp" />

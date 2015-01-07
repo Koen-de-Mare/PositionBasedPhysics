@@ -93,7 +93,9 @@ void simulator::project(timeUnit deltaTime) {   //writes results to tP
     }
 
     for (int i = 0; i < world->getSoftforcePoolSize(); i++) {
-        world->getSoftforce(i)->applySoftforce(tBuffer, tP, particlePoolSize, deltaTime);
+        if (world->getSoftforce(i) != nullptr) {
+            world->getSoftforce(i)->applySoftforce(tBuffer, tP, particlePoolSize, deltaTime);
+        }
     }
 }
 
@@ -103,14 +105,16 @@ void simulator::Relax() {                       //writes results to t1
     }
 
     for (int i = 0; i < world->getConstraintPoolSize(); i++) {
-        world->getConstraint(i)->resolveConstraint(tBuffer, t1, particlePoolSize);
+        if (world->getConstraint(i) != nullptr) {
+            world->getConstraint(i)->resolveConstraint(tBuffer, t1, particlePoolSize);
+        }
     }
 }
 
 void simulator::integrate(timeUnit deltaTime) { //writes results to t1
     for (int i = 0; i < particlePoolSize; i++) {
         if (world->isParticleActive(i)) {
-
+            t1[i].setVelocity((t1[i].getPosition() - t0[i].getPosition()) * 2 / deltaTime - t0[i].getVelocity());
         }
     }
 }
