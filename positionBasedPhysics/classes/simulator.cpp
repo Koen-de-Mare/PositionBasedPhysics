@@ -109,6 +109,8 @@ void simulator::Relax() {                       //writes results to t1
 
 void simulator::integrate(timeUnit deltaTime) { //writes results to t1
     for (int i = 0; i < particlePoolSize; i++) {
-        //integrate for this particle
+        if (world->isParticleActive(i)) {
+
+        }
     }
 }

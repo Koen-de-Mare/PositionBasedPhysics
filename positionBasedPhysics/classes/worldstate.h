@@ -36,6 +36,8 @@ class worldstate {
         int getSoftforcePoolSize() const;
         int getConstraintPoolSize() const;
 
+        bool isParticleActive(const int& index) const;
+
         void operator = (const worldstate& newValue);
     protected:
     private:

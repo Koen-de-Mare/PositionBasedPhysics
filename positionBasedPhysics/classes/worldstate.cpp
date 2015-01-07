@@ -132,6 +132,11 @@ bool worldstate::addConstraint(constraint* const newConstraint) {
     return false;
 }
 
+bool worldstate::isParticleActive(const int& index) const {
+    return particlePoolFlag[index];
+}
+
+
 void worldstate::operator=(const worldstate& newValue) {
 
 }

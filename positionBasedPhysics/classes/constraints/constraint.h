@@ -14,7 +14,7 @@ class constraint {
     public:
         constraint();
         virtual ~constraint();
-        virtual void resolveConstraint(particle* inBuffer, particle* outBuffer, int particlePoolSize) =0;
+        virtual void resolveConstraint(particle* const inBuffer, particle* outBuffer, int particlePoolSize) =0;
         virtual bool getUsingParticle(const int& index) const =0;
     protected:
         //subclass sandbox:
