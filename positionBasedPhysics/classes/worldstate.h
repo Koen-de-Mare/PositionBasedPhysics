@@ -18,9 +18,11 @@ class worldstate {
         worldstate();
         virtual ~worldstate();
 
-        particle* getParticle(const int& index);
+        particle getParticle(const int& index);
         softforce* getSoftforce(const int& index);
         constraint* getConstraint(const int& index);
+
+        void setParticle(const particle& newParticle, const int& index);
 
         int addParticle(const particle& newParticle);
         bool addSoftforce(softforce* const newSoftforce);

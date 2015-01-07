@@ -25,15 +25,12 @@ worldstate::~worldstate() {
     }
 }
 
-particle* worldstate::getParticle(const int& index) {
-    if (index < 0 || index >= particlePoolSize) {
-        return nullptr;
-    }
-    if (particlePoolFlag[index] == false) {
-        return nullptr;
-    } else {
-        return &(particlePool[index]);
-    }
+particle worldstate::getParticle(const int& index) {
+    return particlePool[index];
+}
+
+void worldstate::setParticle(const particle& newParticle, const int& index) {
+    particlePool[index] = newParticle;
 }
 
 softforce* worldstate::getSoftforce(const int& index) {

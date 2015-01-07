@@ -44,6 +44,10 @@ void particle::clear() {
     acceleration.clear();
 }
 
+void particle::clearAcceleration() {
+    acceleration.clear();
+}
+
 void particle::operator=(const particle& newValue) {
     position = newValue.getPosition();
     velocity = newValue.getVelocity();
