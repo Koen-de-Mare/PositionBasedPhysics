@@ -19,10 +19,10 @@ class vector3D {
         void setZ(const unit& newZ);
         void set(const unit& newX, const unit& newY, const unit& newZ);
         void clear();
-        vector3D operator+ (const vector3D& otherVector);
-        vector3D operator - (const vector3D& otherVector);
-        vector3D operator * (const unit& factor);
-        vector3D operator / (const unit& factor);
+        vector3D operator + (const vector3D& otherVector) const;
+        vector3D operator - (const vector3D& otherVector) const;
+        vector3D operator * (const unit& factor) const;
+        vector3D operator / (const unit& factor) const;
         void operator = (const vector3D& newValue);
     protected:
     private:

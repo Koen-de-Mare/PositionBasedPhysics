@@ -39,6 +39,8 @@
 		<Unit filename="classes/constraints/constraint.h" />
 		<Unit filename="classes/constraints/distanceconstraint.cpp" />
 		<Unit filename="classes/constraints/distanceconstraint.h" />
+		<Unit filename="classes/constraints/positionconstraint.cpp" />
+		<Unit filename="classes/constraints/positionconstraint.h" />
 		<Unit filename="classes/particle.cpp" />
 		<Unit filename="classes/particle.h" />
 		<Unit filename="classes/simulator.cpp" />

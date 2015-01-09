@@ -22,19 +22,19 @@ void vector2D::normalize() {
     *this = *this / (getLength());
 }
 
-vector2D vector2D::operator+ (const vector2D& otherVector) {
+vector2D vector2D::operator+ (const vector2D& otherVector) const {
     return vector2D(x + otherVector.getX(), y + otherVector.getY());
 }
 
-vector2D vector2D::operator- (const vector2D& otherVector) {
+vector2D vector2D::operator- (const vector2D& otherVector) const {
     return vector2D(x - otherVector.getX(), y - otherVector.getY());
 }
 
-vector2D vector2D::operator* (const unit& factor) {
+vector2D vector2D::operator* (const unit& factor) const {
     return vector2D(x * factor, y * factor);
 }
 
-vector2D vector2D::operator/ (const unit& factor) {
+vector2D vector2D::operator/ (const unit& factor) const {
     return operator*(1 / factor);
 }
 

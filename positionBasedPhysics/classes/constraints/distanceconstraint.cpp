@@ -20,13 +20,14 @@ distanceconstraint::distanceconstraint(const int& newParticle1, const int& newPa
     length = newLength;
 }
 
-
 distanceconstraint::~distanceconstraint() {
     //dtor
 }
 
-void distanceconstraint::resolveConstraint(particle* const inBuffer, particle* outBuffer, int particlePoolSize) {
-    vector relativePosition = inBuffer[particle2].getPosition() - inBuffer[particle1].getPosition();
+void distanceconstraint::virtualResolveConstraint() {
+    // port this to the new constraint.h implementation
+
+    vector relativePosition = getPosition(particle1) - getPosition(particle2);
     //vector pointing from particle1 to particle2
 
     switch (myType) {
@@ -47,12 +48,9 @@ void distanceconstraint::resolveConstraint(particle* const inBuffer, particle* o
     totalDisplacement = totalDisplacement * (length - relativePosition.getLength());
     //vector of the total displacement of vector2 relative to vector1
 
-    vector displacement = totalDisplacement / (1 + inBuffer[particle1].getMass() / inBuffer[particle2].getMass());
-    displacement = displacement * -1;       //because this vector points opposite to totaldisplacement
-    outBuffer[particle1].setPosition(outBuffer[particle1].getPosition() + displacement);
+    displace(particle1, totalDisplacement * -1 / (1 + getParticle(particle1).getMass() / getParticle(particle2).getMass()));
 
-    displacement = totalDisplacement / (1 + inBuffer[particle2].getMass() / inBuffer[particle1].getMass());
-    outBuffer[particle2].setPosition(outBuffer[particle2].getPosition() + displacement);
+    displace(particle2, totalDisplacement / (1 + getParticle(particle2).getMass() / getParticle(particle1).getMass()));
 }
 
 bool distanceconstraint::getUsingParticle(const int& index) const {

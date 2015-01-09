@@ -17,10 +17,10 @@ class vector2D {
         void setY(const unit& newY);
         void set(const unit& newX, const unit& newY);
         void clear();
-        vector2D operator+ (const vector2D& otherVector);
-        vector2D operator - (const vector2D& otherVector);
-        vector2D operator * (const unit& factor);
-        vector2D operator / (const unit& factor);
+        vector2D operator + (const vector2D& otherVector) const;
+        vector2D operator - (const vector2D& otherVector) const;
+        vector2D operator * (const unit& factor) const;
+        vector2D operator / (const unit& factor) const;
         void operator = (const vector2D& newValue);
     protected:
     private:

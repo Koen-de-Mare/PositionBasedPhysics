@@ -24,19 +24,19 @@ void vector3D::normalize() {
     *this = *this / (getLength());
 }
 
-vector3D vector3D::operator+ (const vector3D& otherVector) {
+vector3D vector3D::operator+ (const vector3D& otherVector) const {
     return vector3D(x + otherVector.getX(), y + otherVector.getY(), z + otherVector.getZ());
 }
 
-vector3D vector3D::operator- (const vector3D& otherVector) {
+vector3D vector3D::operator- (const vector3D& otherVector) const {
     return vector3D(x - otherVector.getX(), y - otherVector.getY(), z - otherVector.getZ());
 }
 
-vector3D vector3D::operator* (const unit& factor) {
+vector3D vector3D::operator* (const unit& factor) const {
     return vector3D(x * factor, y * factor, z * factor);
 }
 
-vector3D vector3D::operator/ (const unit& factor) {
+vector3D vector3D::operator/ (const unit& factor) const {
     return operator*(1 / factor);
 }
 

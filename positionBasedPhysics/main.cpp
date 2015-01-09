@@ -26,9 +26,6 @@ int main() {
     int tempInt = myWorldState->addParticle(tempParticle);
     cout << tempInt << endl;
 
-    mySimulator->simulate(myWorldState, 1);
-
-    cout << endl << myWorldState->getParticle(tempInt).getPosition().getX() << endl;
 
     delete myWorldState;
     myWorldState = nullptr;

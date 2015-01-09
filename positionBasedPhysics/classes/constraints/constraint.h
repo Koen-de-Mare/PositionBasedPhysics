@@ -14,14 +14,22 @@ class constraint {
     public:
         constraint();
         virtual ~constraint();
-        virtual void resolveConstraint(particle* const inBuffer, particle* outBuffer, int particlePoolSize) =0;
+        void resolveConstraint(particle* const newInBuffer, particle* newOutBuffer, const int& newParticlePoolSize);
         virtual bool getUsingParticle(const int& index) const =0;
         virtual void changeIndex(const int& oldIndex, const int& newIndex) =0;
     protected:
-        //subclass sandbox:
-        inline unit getDistance(const particle* particle1, const particle* particle2) const;
-        inline void displace(const particle* particle1, const vector& displacement);
+        virtual void virtualResolveConstraint() =0;
+    //subclass sandbox:
+        vector getPosition(const int& particleIndex) const;
+        unit getDistance(const int& particleIndex1, const int& particleIndex2) const;
+        const particle getParticle(const int& particleIndex) const;
+
+        void displace(const int& particleIndex, const vector& displacement);
+        void setPosition(const int& particleIndex, const vector& newPosition);
     private:
+        particle* inBuffer = nullptr;
+        particle* outBuffer = nullptr;
+        int particlePoolSize = 1;
 };
 
 #endif // CONSTRAINT_H
