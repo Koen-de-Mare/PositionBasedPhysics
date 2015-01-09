@@ -38,7 +38,7 @@ unit constraint::getDistance(const int& particleIndex1, const int& particleIndex
     if (particleIndex1 >= 0 || particleIndex1 < particlePoolSize || particleIndex2 >= 0 || particleIndex2 < particlePoolSize) {
         return (getPosition(particleIndex1) - getPosition(particleIndex2)).getLength();
     } else {
-        //one of the particleIndecies supplied was invalid
+        //one of the particleIndices supplied was invalid
         return 0;
     }
 }
