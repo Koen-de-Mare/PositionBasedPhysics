@@ -26,9 +26,8 @@ int main() {
 
     particle tempParticle;
     tempParticle.setVelocity(tempVector);   //1,0
-    tempParticle.setPosition(tempVector * 2);   //2,0
+    tempParticle.setPosition(tempVector);   //1,0
     particle1 = myWorldState->addParticle(tempParticle);
-    cout << "particle1 = " << particle1 << endl;
     tempVector.clear();
 
     tempParticle.setPosition(tempVector);   //0, 0
@@ -47,22 +46,19 @@ int main() {
 
     myConstraint = nullptr;
 
-
-
-
     cout << endl;
     cout << "particle1.X = " << myWorldState->getParticle(particle1).getPosition().getX() << endl;
     cout << "particle2.X = " << myWorldState->getParticle(particle2).getPosition().getX() << endl;
 
-    for (int i = 0; i < 25; i++) {
-        cout << endl;
-        mySimulator->simulate(myWorldState, 1 / 5);
+    mySimulator->setFullIterationsNumber(1);
+
+    for (int i = 0; i < 10; i++) {
+        cout << endl << "new iteration!" << endl;
+        mySimulator->simulate(myWorldState, 0.2);
         cout << endl;
         cout << "particle1.X = " << myWorldState->getParticle(particle1).getPosition().getX() << endl;
         cout << "particle2.X = " << myWorldState->getParticle(particle2).getPosition().getX() << endl;
     }
-
-
 
     delete myWorldState;
     myWorldState = nullptr;

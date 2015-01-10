@@ -24,8 +24,8 @@ vector constraint::getPosition(const int& particleIndex) const {
     if (particleIndex >= 0 || particleIndex < particlePoolSize) {
         return inBuffer[particleIndex].getPosition();
     } else {
-        //the particleIndex supplied was invalid
-        return vector2D ();
+        //the particleIndex supplied was invalid!
+        return vector2D (0, 0);
     }
 }
 

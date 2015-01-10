@@ -9,6 +9,10 @@ simulator::~simulator() {
 }
 
 void simulator::simulate(worldstate* providedWorld, timeUnit deltaTime) {
+    if (deltaTime <= 0) {
+        std::cout << "ERROR! the deltaTime provided for the simulator is invalid!" << std::endl;
+        return;
+    }
     //std::cout << "simulate call\n";
     timeUnit tempTime = deltaTime / fullIterationsNumber;
 
@@ -100,7 +104,7 @@ void simulator::setRelaxationIterationsNumber(int newRelaxationIterationsNumber)
     }
 }
 
-void simulator::project(timeUnit deltaTime) {   //writes results to tP
+void simulator::project(timeUnit deltaTime) {       //writes results to tP
     for (int i = 0; i < particlePoolSize; i++) {
         tP[i].clearAcceleration();
         tBuffer[i] = tP[i];
@@ -113,12 +117,14 @@ void simulator::project(timeUnit deltaTime) {   //writes results to tP
     }
 
     for (int i = 0; i < particlePoolSize; i++) {
-        tP[i].setPosition(tP[i].getPosition() + tP[i].getVelocity() * deltaTime + tP[i].getAcceleration() * 0.5 * deltaTime * deltaTime);
-        tP[i].setVelocity(tP[i].getVelocity() + tP[i].getAcceleration() * deltaTime);
+        if (world->isParticleActive(i)) {
+            tP[i].setPosition(tP[i].getPosition() + tP[i].getVelocity() * deltaTime + tP[i].getAcceleration() * 0.5 * deltaTime * deltaTime);
+            tP[i].setVelocity(tP[i].getVelocity() + tP[i].getAcceleration() * deltaTime);
+        }
     }
 }
 
-void simulator::Relax() {                       //writes results to t1
+void simulator::Relax() {                           //writes results to t1
     for (int i = 0; i < particlePoolSize; i++) {
         tBuffer[i] = t1[i];
     }
@@ -130,10 +136,11 @@ void simulator::Relax() {                       //writes results to t1
     }
 }
 
-void simulator::integrate(timeUnit deltaTime) { //writes results to t1
+void simulator::integrate(timeUnit deltaTime) {     //writes results to t1
     for (int i = 0; i < particlePoolSize; i++) {
         if (world->isParticleActive(i)) {
-            t1[i].setVelocity((t1[i].getPosition() - t0[i].getPosition()) * 2 / deltaTime - t0[i].getVelocity());
+            t1[i].setVelocity((t1[1].getPosition() - t0[i].getPosition()) / deltaTime);
+            //t1[i].setVelocity((t1[1].getPosition() - t0[i].getPosition()) / deltaTime * 2 - t0[i].getVelocity());
         }
     }
 }

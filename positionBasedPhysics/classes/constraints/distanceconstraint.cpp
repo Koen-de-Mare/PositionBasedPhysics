@@ -25,8 +25,6 @@ distanceconstraint::~distanceconstraint() {
 }
 
 void distanceconstraint::virtualResolveConstraint() {
-    std::cout << "resolving constraint...\n";
-
     vector relativePosition = getPosition(particle1) - getPosition(particle2);
     //vector pointing from particle1 to particle2
 
@@ -42,8 +40,6 @@ void distanceconstraint::virtualResolveConstraint() {
             }
             break;
     }
-
-    std::cout << "constraint should be resolved\n";
 
     float displacementLength = relativePosition.getLength() - length;
     //float representing how far particle1 and two should be moved apart
