@@ -1,6 +1,8 @@
 #ifndef WORLDSTATE_H
 #define WORLDSTATE_H
 
+#include <iostream>
+
 #include "particle.h"
 #include "softforces/softforce.h"
 #include "constraints/constraint.h"
@@ -25,8 +27,8 @@ class worldstate {
         void setParticle(const particle& newParticle, const int& index);
 
         int addParticle(const particle& newParticle);
-        bool addSoftforce(softforce* const newSoftforce);
-        bool addConstraint(constraint* const newConstraint);
+        int addSoftforce(softforce* const newSoftforce);
+        int addConstraint(constraint* const newConstraint);
 
         void removeParticle(const int& index);
         void removeSoftforce(const int& index);

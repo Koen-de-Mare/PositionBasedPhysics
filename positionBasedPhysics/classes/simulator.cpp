@@ -1,7 +1,5 @@
 #include "simulator.h"
 
-#include <iostream>
-
 simulator::simulator() {
 
 }
@@ -11,7 +9,7 @@ simulator::~simulator() {
 }
 
 void simulator::simulate(worldstate* providedWorld, timeUnit deltaTime) {
-    std::cout << "simulate call\n";
+    //std::cout << "simulate call\n";
     timeUnit tempTime = deltaTime / fullIterationsNumber;
 
     for (int i = 0; i < projectionIterationsNumber; i++) {
@@ -20,7 +18,7 @@ void simulator::simulate(worldstate* providedWorld, timeUnit deltaTime) {
 }
 
 void simulator::virtualSimulate(worldstate* providedWorld, timeUnit deltaTime) {
-    std::cout << "virtual simulate call\ninitializing...\n";
+    //std::cout << "virtual simulate call\ninitializing...\n";
     world = providedWorld;
 
     particlePoolSize = world->getParticlePoolSize();
@@ -35,35 +33,35 @@ void simulator::virtualSimulate(worldstate* providedWorld, timeUnit deltaTime) {
         tP[i] = t0[i];
     }
 
-    std::cout << "initialized!\nprojecting...\n";
+    //std::cout << "initialized!\nprojecting...\n";
 
     timeUnit tempTime = deltaTime / projectionIterationsNumber;
     for (int i = 0; i < projectionIterationsNumber; i++) {
         project(tempTime);
     }
 
-    std::cout << "projected!\npreparing buffers...\n";
+    //std::cout << "projected!\npreparing buffers...\n";
 
     for (int i = 0; i < particlePoolSize; i++) {
         t1[i] = tP[i];
     }
 
-    std::cout << "relaxing constraints...\n";
+    //std::cout << "relaxing constraints...\n";
 
     for (int i = 0; i < relaxationIterationsNumber; i++) {
         Relax();
     }
 
-    std::cout << "constraint relaxation completed!\nintegrating...\n";
+    //std::cout << "constraint relaxation completed!\nintegrating...\n";
 
     integrate(deltaTime);
 
-    std::cout << "integrating finished\n";
+    //std::cout << "integrating finished\n";
 
     for (int i = 0; i < particlePoolSize; i++) {
         world->setParticle(t1[i], i);
     }
-    std::cout << "finished";
+    //std::cout << "finished";
 
     delete[] t0;
     delete[] tP;

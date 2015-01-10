@@ -25,7 +25,7 @@ distanceconstraint::~distanceconstraint() {
 }
 
 void distanceconstraint::virtualResolveConstraint() {
-    // port this to the new constraint.h implementation
+    std::cout << "resolving constraint...\n";
 
     vector relativePosition = getPosition(particle1) - getPosition(particle2);
     //vector pointing from particle1 to particle2
@@ -43,14 +43,32 @@ void distanceconstraint::virtualResolveConstraint() {
             break;
     }
 
-    vector totalDisplacement = relativePosition;
-    totalDisplacement.normalize();
-    totalDisplacement = totalDisplacement * (length - relativePosition.getLength());
-    //vector of the total displacement of vector2 relative to vector1
+    std::cout << "constraint should be resolved\n";
 
-    displace(particle1, totalDisplacement * -1 / (1 + getParticle(particle1).getMass() / getParticle(particle2).getMass()));
+    float displacementLength = relativePosition.getLength() - length;
+    //float representing how far particle1 and two should be moved apart
+    //this value is negative if they should be moved towards each other
+    //if this value equals zero, the constraint is already resolved
 
-    displace(particle2, totalDisplacement / (1 + getParticle(particle2).getMass() / getParticle(particle1).getMass()));
+    if (displacementLength == 0) {
+        //constraint is already resolved
+        return;
+    }
+
+    if (displacementLength == -length) {
+        //the particles are in the exact same position, the constraint cannot be resolved!
+        return;
+    }
+
+    vector displacementVector;
+    //vector representing the displacement of particle2 relative to particle1
+    displacementVector = relativePosition;
+
+    displacementVector.normalize();
+    displacementVector = displacementVector * displacementLength;
+
+    displace(particle1, displacementVector * -1 / (1 + getParticle(particle1).getMass() / getParticle(particle2).getMass()));
+    displace(particle2, displacementVector *  1 / (1 + getParticle(particle2).getMass() / getParticle(particle1).getMass()));
 }
 
 bool distanceconstraint::getUsingParticle(const int& index) const {

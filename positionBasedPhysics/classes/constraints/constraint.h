@@ -3,6 +3,8 @@
 
 #include <math.h>
 
+#include <iostream>
+
 #include "particle.h"
 #include "vector/vector2d.h"
 //#include "vector/vector3d.h"

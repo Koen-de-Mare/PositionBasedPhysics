@@ -10,6 +10,7 @@ positionconstraint::~positionconstraint() {
 }
 
 void positionconstraint::virtualResolveConstraint() {
+    std::cout << "resolving constraint\n";
     setPosition(particle, position);
 }
 

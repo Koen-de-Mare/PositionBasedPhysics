@@ -1,6 +1,8 @@
 #ifndef SIMULATOR_H
 #define SIMULATOR_H
 
+#include <iostream>
+
 #include "worldstate.h"
 
 using timeUnit = float;
