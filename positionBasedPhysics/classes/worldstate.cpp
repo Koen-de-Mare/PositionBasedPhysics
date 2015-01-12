@@ -26,21 +26,30 @@ worldstate::~worldstate() {
 }
 
 particle worldstate::getParticle(const int& index) {
-    return particlePool[index];
+    if (index >= 0 && index < pariclePoolSize) {
+        return particlePool[index];
+    } else {
+        //the index was invalid
+        return new particle;
+    }
 }
 
 softforce* worldstate::getSoftforce(const int& index) {
-    if (index < 0 || index >= softforcePoolSize) {
+    if (index >= 0 && index < softforcePoolSize) {
+        return softforcePool[index];
+    } else {
+        //the index was invalid
         return nullptr;
     }
-    return softforcePool[index];
 }
 
 constraint* worldstate::getConstraint(const int& index) {
-    if (index < 0 || index >= constraintPoolSize) {
+    if (index >= 0 && index < constraintPoolSize) {
+        return constrainPool[index];
+    } else {
+        //the index was invalid
         return nullptr;
     }
-    return constraintPool[index];
 }
 
 void worldstate::setParticle(const particle& newParticle, const int& index) {
@@ -131,10 +140,13 @@ int worldstate::getConstraintPoolSize() const {
 }
 
 bool worldstate::isParticleActive(const int& index) const {
-    return particlePoolFlag[index];
+    if (index >= 0 && index < particlePoolSize) {
+        return particlePoolFlag[index];
+    } else {
+        return false;
+    }
 }
 
 void worldstate::operator=(const worldstate& newValue) {
 
 }
-
