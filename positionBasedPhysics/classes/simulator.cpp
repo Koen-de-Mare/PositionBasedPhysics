@@ -139,8 +139,11 @@ void simulator::Relax() {                           //writes results to t1
 void simulator::integrate(timeUnit deltaTime) {     //writes results to t1
     for (int i = 0; i < particlePoolSize; i++) {
         if (world->isParticleActive(i)) {
-            t1[i].setVelocity((t1[1].getPosition() - t0[i].getPosition()) / deltaTime);
-            //t1[i].setVelocity((t1[1].getPosition() - t0[i].getPosition()) / deltaTime * 2 - t0[i].getVelocity());
+            #if false
+            t1[i].setVelocity((t1[i].getPosition() - t0[i].getPosition()) / deltaTime);
+            #else
+            t1[i].setVelocity((t1[i].getPosition() - t0[i].getPosition()) / deltaTime * 2 - t0[i].getVelocity());
+            #endif
         }
     }
 }

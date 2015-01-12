@@ -41,20 +41,15 @@ void distanceconstraint::virtualResolveConstraint() {
             break;
     }
 
+    if (relativePosition.getLength() == 0) {
+        //there is no distance between the two constraints, so the constraint cannot be resolved
+        return;
+    }
+
     float displacementLength = relativePosition.getLength() - length;
     //float representing how far particle1 and two should be moved apart
     //this value is negative if they should be moved towards each other
     //if this value equals zero, the constraint is already resolved
-
-    if (displacementLength == 0) {
-        //constraint is already resolved
-        return;
-    }
-
-    if (displacementLength == -length) {
-        //the particles are in the exact same position, the constraint cannot be resolved!
-        return;
-    }
 
     vector displacementVector;
     //vector representing the displacement of particle2 relative to particle1
