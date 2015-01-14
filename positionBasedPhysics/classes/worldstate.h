@@ -24,7 +24,7 @@ class worldstate {
         softforce* getSoftforce(const int& index);
         constraint* getConstraint(const int& index);
 
-        void setParticle(const particle& newParticle, const int& index);
+        void setParticle(const int& index, const particle& newParticle);
 
         int addParticle(const particle& newParticle);
         int addSoftforce(softforce* const newSoftforce);

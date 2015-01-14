@@ -26,12 +26,14 @@ class constraint {
         unit getDistance(const int& particleIndex1, const int& particleIndex2) const;
         const particle getParticle(const int& particleIndex) const;
 
+        int getParticlePoolSize() const;
+
         void displace(const int& particleIndex, const vector& displacement);
         void setPosition(const int& particleIndex, const vector& newPosition);
     private:
         particle* inBuffer = nullptr;
         particle* outBuffer = nullptr;
-        int particlePoolSize = 1;
+        int particlePoolSize = 0;
 };
 
 #endif // CONSTRAINT_H

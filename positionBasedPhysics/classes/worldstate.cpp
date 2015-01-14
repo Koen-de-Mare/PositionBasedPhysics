@@ -52,7 +52,7 @@ constraint* worldstate::getConstraint(const int& index) {
     }
 }
 
-void worldstate::setParticle(const particle& newParticle, const int& index) {
+void worldstate::setParticle(const int& index, const particle& newParticle) {
     if (index >=0 && index < particlePoolSize) {
         particlePool[index] = newParticle;
     }
