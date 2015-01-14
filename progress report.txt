@@ -1,0 +1,8 @@
+todo:
+gui
+gravity softforce
+spring softforce
+damper softforce
+import/export system
+clean the simulator and worldstate classes (mabye make a possibility to choose between multiple integration methods while were at it)
+change the arrays (to vectors or pointers), in order to change the size of the arrays at runtime (or when files are imported)
