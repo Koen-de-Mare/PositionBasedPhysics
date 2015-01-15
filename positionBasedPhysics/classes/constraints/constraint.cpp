@@ -21,22 +21,19 @@ void constraint::resolveConstraint(particle* const newInBuffer, particle* newOut
 }
 
 vector constraint::getPosition(const int& particleIndex) const {
+    vector tempVector;
     if (particleIndex >= 0 && particleIndex < particlePoolSize) {
-        return inBuffer[particleIndex].getPosition();
-    } else {
-        //the particleIndex supplied was invalid!
-        vector tempVector;
-        return tempVector;
+        tempVector = inBuffer[particleIndex].getPosition();
     }
+    return tempVector;
 }
 
 unit constraint::getDistance(const int& particleIndex1, const int& particleIndex2) const {
+    unit tempUnit = -1;
     if (particleIndex1 >= 0 && particleIndex1 < particlePoolSize && particleIndex2 >= 0 && particleIndex2 < particlePoolSize) {
-        return (getPosition(particleIndex1) - getPosition(particleIndex2)).getLength();
-    } else {
-        //one of the particleIndices supplied was invalid
-        return 0;
+        tempUnit = (getPosition(particleIndex1) - getPosition(particleIndex2)).getLength();
     }
+    return tempUnit;
 }
 
 const particle constraint::getParticle(const int& particleIndex) const {
