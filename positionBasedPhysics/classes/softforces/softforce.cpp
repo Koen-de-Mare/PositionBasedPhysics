@@ -21,26 +21,27 @@ void softforce::applySoftforce(particle* const newInBuffer, particle* newOutBuff
 }
 
 vector softforce::getPosition(const int& particleIndex) const {
+    vector tempVector;
     if (particleIndex >= 0 && particleIndex < particlePoolSize) {
-        return inBuffer[particleIndex].getPosition();
-    } else {
-        //the particleIndex supplied was invalid!
-        vector tempVector;
-        return tempVector;
+        tempVector = inBuffer[particleIndex].getPosition();
     }
+    return tempVector;
 }
 
 unit softforce::getDistance(const int& particleIndex1, const int& particleIndex2) const {
+    unit tempUnit = -1;
     if (particleIndex1 >= 0 && particleIndex1 < particlePoolSize && particleIndex2 >= 0 && particleIndex2 < particlePoolSize) {
-        return (getPosition(particleIndex1) - getPosition(particleIndex2)).getLength();
-    } else {
-        //one of the particleIndices supplied was invalid
-        return 0;
+        tempUnit = (getPosition(particleIndex1) - getPosition(particleIndex2)).getLength();
     }
+    return tempUnit;
 }
 
 const particle softforce::getParticle(const int& particleIndex) const {
-    return inBuffer[particleIndex];
+    particle tempParticle;
+    if (particleIndex >= 0 && particleIndex < particlePoolSize) {
+        tempParticle = inBuffer[particleIndex];
+    }
+    return tempParticle;
 }
 
 int softforce::getParticlePoolSize() const {
