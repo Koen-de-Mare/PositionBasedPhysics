@@ -37,7 +37,11 @@ unit constraint::getDistance(const int& particleIndex1, const int& particleIndex
 }
 
 const particle constraint::getParticle(const int& particleIndex) const {
-    return inBuffer[particleIndex];
+    particle tempParticle;
+    if (particleIndex >= 0 && particleIndex < particlePoolSize) {
+        tempParticle = inBuffer[particleIndex];
+    }
+    return tempParticle;
 }
 
 int constraint::getParticlePoolSize() const {
