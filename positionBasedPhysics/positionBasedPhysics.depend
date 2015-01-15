@@ -1,9 +1,9 @@
 # depslib dependency file v1.0
-1421255236 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\main.cpp
+1421333849 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\main.cpp
 	<iostream>
 	"worldstate.h"
 	"simulator.h"
-	"particle.h"
+	"particles/particle.h"
 	"vector/vector2d.h"
 	"constraints/distanceconstraint.h"
 	"constraints/positionconstraint.h"
@@ -63,31 +63,32 @@
 1420322446 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\vector3d.h
 	<cmath>
 
-1421257443 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\constraints\constraint.cpp
+1421359505 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\constraints\constraint.cpp
 	"constraint.h"
 
-1421257395 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\constraints\constraint.h
+1421359625 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\constraints\constraint.h
 	<math.h>
 	<iostream>
-	"particle.h"
+	"particles/particle.h"
+	"particles/particlepool.h"
 	"vector/vector2d.h"
 
 1420664044 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\particle.h
 	"vector/vector2d.h"
 
-1420820423 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\vector\vector2d.h
+1421343941 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\vector\vector2d.h
 	<cmath>
 
 1420664060 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\particle.cpp
 	"particle.h"
 
-1421257478 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\softforces\softforce.cpp
+1421330589 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\softforces\softforce.cpp
 	"softforce.h"
 
-1421257443 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\softforces\softforce.h
+1421333863 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\softforces\softforce.h
 	<math.h>
 	<iostream>
-	"particle.h"
+	"particles/particle.h"
 	"vector/vector2d.h"
 
 1420820423 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\vector\vector2d.cpp
@@ -96,23 +97,28 @@
 1420820480 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\vector\vector3d.cpp
 	"vector3d.h"
 
-1420820479 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\vector\vector3d.h
+1421343897 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\vector\vector3d.h
 	<cmath>
 
-1421257810 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\worldstate.h
+1421343238 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\worldstate.h
 	<iostream>
-	"particle.h"
+	"particles/particle.h"
+	"particles/particlepool.h"
 	"softforces/softforce.h"
 	"constraints/constraint.h"
 
-1420897241 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\simulator.h
+1421343290 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\simulator.h
 	<iostream>
+	"particles/particle.h"
+	"particles/particlePool.h"
+	"softforces/softforce.h"
+	"constraints/constraint.h"
 	"worldstate.h"
 
-1421255083 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\simulator.cpp
+1421258050 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\simulator.cpp
 	"simulator.h"
 
-1421074111 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\worldstate.cpp
+1421331596 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\worldstate.cpp
 	"worldstate.h"
 
 1421096762 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\constraints\distanceconstraint.cpp
@@ -126,4 +132,18 @@
 
 1420826095 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\constraints\positionconstraint.h
 	"constraint.h"
+
+1421343762 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\particles\particle.h
+	"vector/vector2d.h"
+
+1421343779 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\particles\particle.cpp
+	"particle.h"
+
+1421357412 source:c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\particles\particlepool.cpp
+	"particlepool.h"
+
+1421357316 c:\programmeren koen\github\positionbasedphysics\positionbasedphysics\classes\particles\particlepool.h
+	"particles/particle.h"
+	"vector/vector2d.h"
+	"vector/vector3d.h"
 

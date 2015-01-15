@@ -1,6 +1,9 @@
+http://www.tomdalling.com/blog/software-design/model-view-controller-explained/
+
 todo:
-! compile latest changes
 ! in the constraint and softforce classess, check if the particle is currently active in getParticle
+
+wrap the arrays of particles in a dedicated object
 gui
 gravity softforce
 spring softforce

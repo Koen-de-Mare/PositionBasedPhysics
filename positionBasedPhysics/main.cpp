@@ -2,7 +2,8 @@
 
 #include "worldstate.h"
 #include "simulator.h"
-#include "particle.h"
+#include "particles/particle.h"
+#include "particles/particlePool.h"
 #include "vector/vector2d.h"
 #include "constraints/distanceconstraint.h"
 #include "constraints/positionconstraint.h"
@@ -10,9 +11,7 @@
 
 using namespace std;
 
-/*
-http://www.devx.com/getHelpOn/10MinuteSolution/17298/0/page/3
-*/
+using vector = vector2D;
 
 int main() {
     cout << "Hello, world!" << endl << endl;
@@ -22,7 +21,7 @@ int main() {
 
     int particle1, particle2;
 
-    vector2D tempVector (1, 0);
+    vector tempVector (1, 0);
 
     particle tempParticle;
     tempParticle.setVelocity(tempVector);   //1,0

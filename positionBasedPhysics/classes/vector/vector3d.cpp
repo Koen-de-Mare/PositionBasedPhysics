@@ -24,28 +24,6 @@ void vector3D::normalize() {
     *this = *this / (getLength());
 }
 
-vector3D vector3D::operator+ (const vector3D& otherVector) const {
-    return vector3D(x + otherVector.getX(), y + otherVector.getY(), z + otherVector.getZ());
-}
-
-vector3D vector3D::operator- (const vector3D& otherVector) const {
-    return vector3D(x - otherVector.getX(), y - otherVector.getY(), z - otherVector.getZ());
-}
-
-vector3D vector3D::operator* (const unit& factor) const {
-    return vector3D(x * factor, y * factor, z * factor);
-}
-
-vector3D vector3D::operator/ (const unit& factor) const {
-    return operator*(1 / factor);
-}
-
-void vector3D::operator= (const vector3D& newValue) {
-    x = newValue.getX();
-    y = newValue.getY();
-    z = newValue.getZ();
-}
-
 unit vector3D::getX() const {
     return x;
 }
@@ -80,4 +58,28 @@ void vector3D::clear() {
     x = 0;
     y = 0;
     z = 0;
+}
+
+vector3D vector3D::operator+ (const vector3D& otherVector) const {
+    return vector3D(x + otherVector.getX(), y + otherVector.getY(), z + otherVector.getZ());
+}
+
+vector3D vector3D::operator- (const vector3D& otherVector) const {
+    return vector3D(x - otherVector.getX(), y - otherVector.getY(), z - otherVector.getZ());
+}
+
+vector3D vector3D::operator* (const unit& factor) const {
+    return vector3D(x * factor, y * factor, z * factor);
+}
+
+vector3D vector3D::operator/ (const unit& factor) const {
+    return operator*(1 / factor);
+}
+
+vector3D vector3D::operator= (const vector3D& newValue) {
+    x = newValue.getX();
+    y = newValue.getY();
+    z = newValue.getZ();
+
+    return *this;
 }

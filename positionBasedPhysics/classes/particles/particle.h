@@ -19,7 +19,7 @@ class particle {
         void setAcceleration(const vector& newAcceleration);
         void clearAcceleration();
         void clear();
-        void operator = (const particle& newValue);
+        particle operator = (const particle& newValue);
     protected:
     private:
         vector position;

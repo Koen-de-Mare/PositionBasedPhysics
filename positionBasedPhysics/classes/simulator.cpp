@@ -25,17 +25,7 @@ void simulator::virtualSimulate(worldstate* providedWorld, timeUnit deltaTime) {
     //std::cout << "virtual simulate call\ninitializing...\n";
     world = providedWorld;
 
-    particlePoolSize = world->getParticlePoolSize();
-
-    t0 = new particle [particlePoolSize];       //initial state
-    tP = new particle [particlePoolSize];       //state after projection
-    t1 = new particle [particlePoolSize];       //state after relaxation
-    tBuffer = new particle [particlePoolSize];  //temporal buffer
-
-    for (int i = 0; i < particlePoolSize; i++) {
-        t0[i] = world->getParticle(i);
-        tP[i] = t0[i];
-    }
+    tP = t0 = world->getParticlePool();
 
     //std::cout << "initialized!\nprojecting...\n";
 
@@ -46,9 +36,7 @@ void simulator::virtualSimulate(worldstate* providedWorld, timeUnit deltaTime) {
 
     //std::cout << "projected!\npreparing buffers...\n";
 
-    for (int i = 0; i < particlePoolSize; i++) {
-        t1[i] = tP[i];
-    }
+    t1 = tP;
 
     //std::cout << "relaxing constraints...\n";
 
@@ -62,21 +50,9 @@ void simulator::virtualSimulate(worldstate* providedWorld, timeUnit deltaTime) {
 
     //std::cout << "integrating finished\n";
 
-    for (int index = 0; index < particlePoolSize; index++) {
-        world->setParticle(index, t1[index]);
-    }
+    world->setParticlePool(t1);
 
     //std::cout << "finished";
-
-    delete[] t0;
-    delete[] tP;
-    delete[] t1;
-    delete[] tBuffer;
-
-    t0 = nullptr;
-    tP = nullptr;
-    t1 = nullptr;
-    tBuffer = nullptr;
 
     world = nullptr;
 }
@@ -106,33 +82,29 @@ void simulator::setRelaxationIterationsNumber(int newRelaxationIterationsNumber)
 }
 
 void simulator::project(timeUnit deltaTime) {       //writes results to tP
-    for (int index = 0; index < particlePoolSize; index++) {
-        tP[index].clearAcceleration();
-        tBuffer[index] = tP[index];
-    }
+    tP.clearAcceleration();
+    tBuffer = tP;
 
+    //put this loop in worldState!
     for (int i = 0; i < world->getSoftforcePoolSize(); i++) {
         if (world->getSoftforce(i) != nullptr) {
-            world->getSoftforce(i)->applySoftforce(tBuffer, tP, particlePoolSize);
+            world->getSoftforce(i)->applySoftforce(&tBuffer, &tP);
         }
     }
 
-    for (int index = 0; index < particlePoolSize; index++) {
-        if (world->isParticleActive(index)) {
-            tP[index].setPosition(tP[index].getPosition() + tP[index].getVelocity() * deltaTime + tP[index].getAcceleration() * 0.5 * deltaTime * deltaTime);
-            tP[index].setVelocity(tP[index].getVelocity() + tP[index].getAcceleration() * deltaTime);
-        }
+    //put this loop somewhere else too
+    for (int index = 0; index < world->getParticlePoolSize(); index++) {
+        //tP[index].setPosition(tP[index].getPosition() + tP[index].getVelocity() * deltaTime + tP[index].getAcceleration() * 0.5 * deltaTime * deltaTime);
+        //tP[index].setVelocity(tP[index].getVelocity() + tP[index].getAcceleration() * deltaTime);
     }
 }
 
 void simulator::Relax() {                           //writes results to t1
-    for (int index = 0; index < particlePoolSize; index++) {
-        tBuffer[index] = t1[index];
-    }
+    tBuffer = t1;
 
     for (int i = 0; i < world->getConstraintPoolSize(); i++) {
         if (world->getConstraint(i) != nullptr) {
-            world->getConstraint(i)->resolveConstraint(tBuffer, t1, particlePoolSize);
+            world->getConstraint(i)->resolveConstraint(&tBuffer, &t1);
         }
     }
 }

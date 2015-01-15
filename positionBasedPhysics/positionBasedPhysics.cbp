@@ -15,6 +15,7 @@
 					<Add option="-g" />
 					<Add directory="classes" />
 					<Add directory="classes/constraints" />
+					<Add directory="classes/particles" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -25,6 +26,7 @@
 				<Compiler>
 					<Add option="-O2" />
 					<Add directory="classes/constraints" />
+					<Add directory="classes/particles" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -41,8 +43,10 @@
 		<Unit filename="classes/constraints/distanceconstraint.h" />
 		<Unit filename="classes/constraints/positionconstraint.cpp" />
 		<Unit filename="classes/constraints/positionconstraint.h" />
-		<Unit filename="classes/particle.cpp" />
-		<Unit filename="classes/particle.h" />
+		<Unit filename="classes/particles/particle.cpp" />
+		<Unit filename="classes/particles/particle.h" />
+		<Unit filename="classes/particles/particlepool.cpp" />
+		<Unit filename="classes/particles/particlepool.h" />
 		<Unit filename="classes/simulator.cpp" />
 		<Unit filename="classes/simulator.h" />
 		<Unit filename="classes/softforces/softforce.cpp" />

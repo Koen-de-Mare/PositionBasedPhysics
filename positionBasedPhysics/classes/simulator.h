@@ -3,6 +3,11 @@
 
 #include <iostream>
 
+#include "particles/particle.h"
+#include "particles/particlePool.h"
+#include "softforces/softforce.h"
+#include "constraints/constraint.h"
+
 #include "worldstate.h"
 
 using timeUnit = float;
@@ -23,10 +28,10 @@ class simulator {
         void Relax();
         void integrate(timeUnit deltaTime);
 
-        particle* t0;
-        particle* tP;
-        particle* t1;
-        particle* tBuffer;
+        particlePool t0;        //initial state
+        particlePool tP;        //state after projection
+        particlePool t1;        //state after relaxation
+        particlePool tBuffer;   //temporal buffer
 
         int particlePoolSize;
     private:

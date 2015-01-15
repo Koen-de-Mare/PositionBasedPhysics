@@ -3,7 +3,8 @@
 
 #include <iostream>
 
-#include "particle.h"
+#include "particles/particle.h"
+#include "particles/particlepool.h"
 #include "softforces/softforce.h"
 #include "constraints/constraint.h"
 
@@ -14,6 +15,7 @@
 class particle;
 class softforce;
 class constraint;
+class particlePool;
 
 class worldstate {
     public:
@@ -24,7 +26,7 @@ class worldstate {
         softforce* getSoftforce(const int& index);
         constraint* getConstraint(const int& index);
 
-        void setParticle(const int& index, const particle& newParticle);
+        void setParticle(const int& index, const particle& newParticle);    //is this still required?
 
         int addParticle(const particle& newParticle);
         int addSoftforce(softforce* const newSoftforce);
@@ -34,23 +36,20 @@ class worldstate {
         void removeSoftforce(const int& index);
         void removeConstraint(const int& index);
 
-        particle* getParticlePool();
+        const particlePool getParticlePool() const;
+        void setParticlePool(const particlePool& newParticlePool);
 
         int getParticlePoolSize() const;
         int getSoftforcePoolSize() const;
         int getConstraintPoolSize() const;
 
-        bool isParticleActive(const int& index) const;
-
         void operator = (const worldstate& newValue);
     protected:
     private:
-        const int particlePoolSize = particlePoolSize_;
         const int softforcePoolSize = softforcePoolSize_;
         const int constraintPoolSize = constraintPoolSize_;
 
-        bool particlePoolFlag [particlePoolSize_];
-        particle particlePool [particlePoolSize_];
+        particlePool myParticlePool;
         softforce* softforcePool [softforcePoolSize_];
         constraint* constraintPool [constraintPoolSize_];
 };
