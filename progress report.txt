@@ -1,4 +1,6 @@
 todo:
+! compile latest changes
+! in the constraint and softforce classess, check if the particle is currently active in getParticle
 gui
 gravity softforce
 spring softforce
