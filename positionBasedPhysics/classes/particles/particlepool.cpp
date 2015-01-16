@@ -1,7 +1,9 @@
 #include "particlepool.h"
 
 particlePool::particlePool(const int& initialParticlePoolSize) {
-    initialize(initialParticlePoolSize);
+    if (initialParticlePoolSize > 0) {
+        initialize(initialParticlePoolSize);
+    }
 }
 
 particlePool::~particlePool() {
@@ -50,6 +52,16 @@ const vector particlePool::getAcceleration(const int& index) const {
         }
     }
     return tempVector;
+}
+
+const float particlePool::getMass(const int& index) const {
+    float tempFloat = -1;
+    if (index >= 0 && index < particlePoolSize) {
+        if (myParticlePoolFlag[index] == true) {
+            tempFloat = myParticlePool[index].getMass();
+        }
+    }
+    return tempFloat;
 }
 
 void particlePool::setParticle(const int& index, const particle& newParticle) {
@@ -118,19 +130,17 @@ int particlePool::getParticlePoolSize() const {
 
 void particlePool::initialize(const int& newParticlePoolSize) {
     if (newParticlePoolSize < 1) {
-        //the size would be smaller than one, thus it would contain no particles
         return;
     }
-    if (particlePoolSize == 0 && myParticlePool == nullptr && myParticlePoolFlag == nullptr) {
-        particlePoolSize = newParticlePoolSize;
 
-        myParticlePool = new particle [particlePoolSize];
-        myParticlePoolFlag = new bool [particlePoolSize];
+    clear();
 
-        for (int index = 0; index < particlePoolSize; index++) {
-            myParticlePoolFlag[index] = false;
-        }
-    }
+    particlePoolSize = newParticlePoolSize;
+
+    #if true    //this code will crash the program during assignments of particlePool objects (if *this is used)
+    myParticlePool = new particle [particlePoolSize];
+    myParticlePoolFlag = new bool [particlePoolSize];
+    #endif
 }
 
 void particlePool::clear() {
@@ -143,16 +153,21 @@ void particlePool::clear() {
     particlePoolSize = 0;
 }
 
-particlePool particlePool::operator= (const particlePool& newValue) {
+particlePool& particlePool::operator=(const particlePool& newValue) {
+    if (this == &newValue) {
+        return *this;
+    }
+
     if (particlePoolSize != newValue.particlePoolSize) {
-        clear();
         initialize(newValue.particlePoolSize);
     }
 
+/*  //iterate over all particles, not interesting as long as the arrays don't work
     for (int index = 0; index < particlePoolSize; index++) {
         myParticlePool[index] = newValue.myParticlePool[index];
         myParticlePoolFlag[index] = newValue.myParticlePoolFlag[index];
     }
+*/
 
-    return *this;
+    *this;
 }

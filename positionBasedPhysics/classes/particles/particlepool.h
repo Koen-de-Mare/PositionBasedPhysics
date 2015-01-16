@@ -1,6 +1,8 @@
 #ifndef PARTICLEPOOL_H
 #define PARTICLEPOOL_H
 
+#include <iostream>
+
 #include "particles/particle.h"
 #include "vector/vector2d.h"
 #include "vector/vector3d.h"
@@ -16,6 +18,7 @@ class particlePool {
         const vector getPosition(const int& index) const;
         const vector getVelocity(const int& index) const;
         const vector getAcceleration(const int& index) const;
+        const float getMass(const int& index) const;
 
         void setParticle(const int& index, const particle& newParticle);
         void setPosition(const int& index, const vector& newPosition);
@@ -32,7 +35,7 @@ class particlePool {
         void initialize(const int& newParticlePoolSize);
         void clear();
 
-        particlePool operator = (const particlePool& newValue);
+        particlePool& operator = (const particlePool& newValue);
     protected:
     private:
         bool* myParticlePoolFlag = nullptr;

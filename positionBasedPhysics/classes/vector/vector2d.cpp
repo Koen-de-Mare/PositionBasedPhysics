@@ -49,11 +49,11 @@ void vector2D::clear() {
 }
 
 vector2D vector2D::operator+ (const vector2D& otherVector) const {
-    return vector2D(x + otherVector.getX(), y + otherVector.getY());
+    return vector2D(x + otherVector.x, y + otherVector.y);
 }
 
 vector2D vector2D::operator- (const vector2D& otherVector) const {
-    return vector2D(x - otherVector.getX(), y - otherVector.getY());
+    return vector2D(x - otherVector.x, y - otherVector.y);
 }
 
 vector2D vector2D::operator* (const unit& factor) const {
@@ -62,11 +62,4 @@ vector2D vector2D::operator* (const unit& factor) const {
 
 vector2D vector2D::operator/ (const unit& factor) const {
     return operator*(1 / factor);
-}
-
-vector2D vector2D::operator= (const vector2D& newValue) {
-    x = newValue.getX();
-    y = newValue.getY();
-
-    return *this;
 }

@@ -61,11 +61,11 @@ void vector3D::clear() {
 }
 
 vector3D vector3D::operator+ (const vector3D& otherVector) const {
-    return vector3D(x + otherVector.getX(), y + otherVector.getY(), z + otherVector.getZ());
+    return vector3D(x + otherVector.x, y + otherVector.y, z + otherVector.z);
 }
 
 vector3D vector3D::operator- (const vector3D& otherVector) const {
-    return vector3D(x - otherVector.getX(), y - otherVector.getY(), z - otherVector.getZ());
+    return vector3D(x - otherVector.x, y - otherVector.y, z - otherVector.z);
 }
 
 vector3D vector3D::operator* (const unit& factor) const {
@@ -74,12 +74,4 @@ vector3D vector3D::operator* (const unit& factor) const {
 
 vector3D vector3D::operator/ (const unit& factor) const {
     return operator*(1 / factor);
-}
-
-vector3D vector3D::operator= (const vector3D& newValue) {
-    x = newValue.getX();
-    y = newValue.getY();
-    z = newValue.getZ();
-
-    return *this;
 }

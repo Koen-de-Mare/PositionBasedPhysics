@@ -21,7 +21,6 @@ class vector2D {
         vector2D operator - (const vector2D& otherVector) const;
         vector2D operator * (const unit& factor) const;
         vector2D operator / (const unit& factor) const;
-        vector2D operator = (const vector2D& newValue);
     protected:
     private:
         unit x;

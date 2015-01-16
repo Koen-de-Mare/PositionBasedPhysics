@@ -6,6 +6,7 @@
 #include <iostream>
 
 #include "particles/particle.h"
+#include "particles/particlePool.h"
 #include "vector/vector2d.h"
 //#include "vector/vector3d.h"
 
