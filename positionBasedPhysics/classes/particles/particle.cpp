@@ -1,23 +1,26 @@
 #include "particle.h"
 
+particle::particle() {
+
+}
+
 particle::particle(float newMass) {
     mass = newMass;
-    clear();
 }
 
 particle::~particle() {
 
 }
 
-vector particle::getPosition() const {
+vectorType particle::getPosition() const {
     return position;
 }
 
-vector particle::getVelocity() const {
+vectorType particle::getVelocity() const {
     return velocity;
 }
 
-vector particle::getAcceleration() const {
+vectorType particle::getAcceleration() const {
     return acceleration;
 }
 
@@ -26,15 +29,15 @@ float particle::getMass() const {
 }
 
 
-void particle::setPosition(const vector& newPosition) {
+void particle::setPosition(const vectorType& newPosition) {
     position = newPosition;
 }
 
-void particle::setVelocity(const vector& newVelocity) {
+void particle::setVelocity(const vectorType& newVelocity) {
     velocity = newVelocity;
 }
 
-void particle::setAcceleration(const vector& newAcceleration) {
+void particle::setAcceleration(const vectorType& newAcceleration) {
     acceleration = newAcceleration;
 }
 

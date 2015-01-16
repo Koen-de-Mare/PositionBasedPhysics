@@ -11,7 +11,7 @@
 //#include "vector/vector3d.h"
 
 using unit = double;
-using vector = vector2D;
+using vectorType = vector2D;
 
 class softforce {
     public:
@@ -23,12 +23,12 @@ class softforce {
     protected:
         virtual void virtualApplySoftforce() =0;
         //subclass sandbox:
-        vector getPosition(const int& particleIndex) const;
+        vectorType getPosition(const int& particleIndex) const;
         unit getDistance(const int& particleIndex1, const int& particleIndex2) const;
         const particle getParticle(const int& particleIndex) const;
         float getMass(const int& particleIndex) const;
 
-        void applyForce(const int& particleIndex, vector force);
+        void applyForce(const int& particleIndex, vectorType force);
     private:
         particlePool* inBuffer;
         particlePool* outBuffer;

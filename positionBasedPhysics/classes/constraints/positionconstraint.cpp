@@ -1,6 +1,6 @@
 #include "positionconstraint.h"
 
-positionconstraint::positionconstraint(const int& newParticle, const vector& newPosition) {
+positionconstraint::positionconstraint(const int& newParticle, const vectorType& newPosition) {
     particle = newParticle;
     position = newPosition;
 }

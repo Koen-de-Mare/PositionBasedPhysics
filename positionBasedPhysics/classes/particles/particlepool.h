@@ -3,27 +3,30 @@
 
 #include <iostream>
 
+//#include <new>
+
 #include "particles/particle.h"
 #include "vector/vector2d.h"
 #include "vector/vector3d.h"
 
-using vector = vector2D;
+using vectorType = vector2D;
 
 class particlePool {
     public:
         particlePool(const int& initialParticlePoolSize = 0);
+        particlePool(const particlePool& newValue);
         virtual ~particlePool();
 
-        const particle getParticle(const int& index) const;
-        const vector getPosition(const int& index) const;
-        const vector getVelocity(const int& index) const;
-        const vector getAcceleration(const int& index) const;
-        const float getMass(const int& index) const;
+        particle getParticle(const int& index) const;
+        vectorType getPosition(const int& index) const;
+        vectorType getVelocity(const int& index) const;
+        vectorType getAcceleration(const int& index) const;
+        float getMass(const int& index) const;
 
         void setParticle(const int& index, const particle& newParticle);
-        void setPosition(const int& index, const vector& newPosition);
-        void setVelocity(const int& index, const vector& newVelocity);
-        void setAcceleration(const int& index, const vector& newAcceleration);
+        void setPosition(const int& index, const vectorType& newPosition);
+        void setVelocity(const int& index, const vectorType& newVelocity);
+        void setAcceleration(const int& index, const vectorType& newAcceleration);
 
         void clearAcceleration();
 
@@ -32,8 +35,8 @@ class particlePool {
 
         int getParticlePoolSize() const;
 
-        void initialize(const int& newParticlePoolSize);
         void clear();
+        void initialize(const int& newParticlePoolSize);
 
         particlePool& operator = (const particlePool& newValue);
     protected:

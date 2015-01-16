@@ -5,7 +5,7 @@
 
 class positionconstraint : public constraint {
     public:
-        positionconstraint(const int& newParticle, const vector& newPosition);
+        positionconstraint(const int& newParticle, const vectorType& newPosition);
         virtual ~positionconstraint();
         bool getUsingParticle(const int& index) const;
         void changeIndex(const int& oldIndex, const int& newIndex);
@@ -13,7 +13,7 @@ class positionconstraint : public constraint {
         void virtualResolveConstraint();
     private:
         int particle;
-        vector position;
+        vectorType position;
 };
 
 #endif // POSITIONCONSTRAINT_H

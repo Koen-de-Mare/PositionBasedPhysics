@@ -18,7 +18,7 @@ void constraint::resolveConstraint(particlePool* const newInBuffer, particlePool
     outBuffer = nullptr;
 }
 
-vector constraint::getPosition(const int& particleIndex) const {
+vectorType constraint::getPosition(const int& particleIndex) const {
     return inBuffer->getPosition(particleIndex);
 }
 
@@ -30,10 +30,10 @@ const particle constraint::getParticle(const int& particleIndex) const {
     return inBuffer->getParticle(particleIndex);
 }
 
-void constraint::displace(const int& particleIndex, const vector& displacement) {
+void constraint::displace(const int& particleIndex, const vectorType& displacement) {
     outBuffer->setPosition(particleIndex, outBuffer->getPosition(particleIndex) + displacement);
 }
 
-void constraint::setPosition(const int& particleIndex, const vector& newPosition) {
+void constraint::setPosition(const int& particleIndex, const vectorType& newPosition) {
     displace(particleIndex, newPosition - getPosition(particleIndex));
 }

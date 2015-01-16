@@ -1,5 +1,7 @@
 #include <iostream>
 
+#include <vector>
+
 #include "worldstate.h"
 #include "simulator.h"
 #include "particles/particle.h"
@@ -11,28 +13,9 @@
 
 using namespace std;
 
-using vector = vector2D;
+using vectorType = vector2D;
 
 int main() {
-
-    //testing code for the new particlePool class (assignment in particular)
-
-    particlePool t0;
-    particlePool t1;
-    particlePool t2;
-
-    t0.initialize(20);
-    cout << t0.getParticlePoolSize() << endl;
-
-    //cout << (t2 = t0).getParticlePoolSize() << endl;  //crashes the program if particlePool creates arrays during assignment
-    t2 = t1 = t1                                      //same as line above
-    //t2 = t0;    //no problem here, even if particlePool creates arrays during assignment
-
-    cout << t2.getParticlePoolSize() << endl;
-
-
-
-    /*
     cout << "Hello, world!" << endl << endl;
 
     worldstate* myWorldstate = new worldstate();
@@ -47,7 +30,7 @@ int main() {
 
     int particle1, particle2;
 
-    vector tempVector (1, 0);
+    vectorType tempVector (1, 0);
 
     particle tempParticle;
     tempParticle.setVelocity(tempVector);   //1,0
@@ -108,6 +91,6 @@ int main() {
     mySimulator = nullptr;
 
     cout << endl << "finished!" << endl;
-    */
+
     return 0;
 }

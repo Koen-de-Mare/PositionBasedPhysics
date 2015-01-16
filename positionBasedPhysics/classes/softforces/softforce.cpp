@@ -18,7 +18,7 @@ void softforce::applySoftforce(particlePool* const newInBuffer, particlePool* ne
     outBuffer = nullptr;
 }
 
-vector softforce::getPosition(const int& particleIndex) const {
+vectorType softforce::getPosition(const int& particleIndex) const {
     return inBuffer->getPosition(particleIndex);
 }
 
@@ -34,6 +34,6 @@ float softforce::getMass(const int& particleIndex) const {
     return inBuffer->getMass(particleIndex);
 }
 
-void softforce::applyForce(const int& particleIndex, vector force) {
+void softforce::applyForce(const int& particleIndex, vectorType force) {
     outBuffer->setAcceleration(particleIndex, outBuffer->getAcceleration(particleIndex) + force / getMass(particleIndex));
 }

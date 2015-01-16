@@ -11,7 +11,7 @@
 //#include "vector/vector3d.h"
 
 using unit = double;
-using vector = vector2D;
+using vectorType = vector2D;
 
 class constraint {
     public:
@@ -23,12 +23,12 @@ class constraint {
     protected:
         virtual void virtualResolveConstraint() =0;
     //subclass sandbox:
-        vector getPosition(const int& particleIndex) const;
+        vectorType getPosition(const int& particleIndex) const;
         unit getDistance(const int& particleIndex1, const int& particleIndex2) const;
         const particle getParticle(const int& particleIndex) const;
 
-        void displace(const int& particleIndex, const vector& displacement);
-        void setPosition(const int& particleIndex, const vector& newPosition);
+        void displace(const int& particleIndex, const vectorType& displacement);
+        void setPosition(const int& particleIndex, const vectorType& newPosition);
     private:
         particlePool* inBuffer;
         particlePool* outBuffer;

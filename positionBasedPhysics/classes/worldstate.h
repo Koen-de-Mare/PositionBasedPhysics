@@ -36,7 +36,7 @@ class worldstate {
         void removeSoftforce(const int& index);
         void removeConstraint(const int& index);
 
-        const particlePool getParticlePool() const;
+        particlePool getParticlePool() const;
         void setParticlePool(const particlePool& newParticlePool);
 
         int getParticlePoolSize() const;

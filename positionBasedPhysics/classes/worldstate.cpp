@@ -22,11 +22,7 @@ worldstate::~worldstate() {
 }
 
 particle worldstate::getParticle(const int& index) {
-    particle tempParticle = NULL;
-    if (index >= 0 && index < myParticlePool.getParticlePoolSize()) {
-        tempParticle = myParticlePool.getParticle(index);
-    }
-    return tempParticle;
+    return myParticlePool.getParticle(index);
 }
 
 softforce* worldstate::getSoftforce(const int& index) {
@@ -110,14 +106,13 @@ void worldstate::removeConstraint(const int& index) {
     }
 }
 
-const particlePool worldstate::getParticlePool() const {
+particlePool worldstate::getParticlePool() const {
     return myParticlePool;
 }
 
 void worldstate::setParticlePool(const particlePool& newParticlePool) {
     myParticlePool = newParticlePool;
 }
-
 
 int worldstate::getSoftforcePoolSize() const {
     return softforcePoolSize;

@@ -25,7 +25,7 @@ distanceconstraint::~distanceconstraint() {
 }
 
 void distanceconstraint::virtualResolveConstraint() {
-    vector relativePosition = getPosition(particle1) - getPosition(particle2);
+    vectorType relativePosition = getPosition(particle1) - getPosition(particle2);
     //vector pointing from particle1 to particle2
 
     switch (myType) {
@@ -51,7 +51,7 @@ void distanceconstraint::virtualResolveConstraint() {
     //this value is negative if they should be moved towards each other
     //if this value equals zero, the constraint is already resolved
 
-    vector displacementVector;
+    vectorType displacementVector;
     //vector representing the displacement of particle2 relative to particle1
     displacementVector = relativePosition;
 
