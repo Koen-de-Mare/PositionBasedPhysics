@@ -9,6 +9,9 @@ worldstate::worldstate() {
         constraintPool[index] = nullptr;
     }
 }
+worldstate::worldstate(const worldstate& newValue) {
+    *this = newValue;
+}
 
 worldstate::~worldstate() {
     //delete the data referenced to by softForcePool and constraintPool as these arrays contain pointers
@@ -63,7 +66,6 @@ int worldstate::addSoftforce(softforce* const newSoftforce) {
 
 int worldstate::addConstraint(constraint* const newConstraint) {
     int newConstraintIndex = -1;
-    std::cout << "adding constraint...\n";
     for (int i = 0; i < constraintPoolSize; i++) {
         if (constraintPool[i] == nullptr) {
             constraintPool[i] = newConstraint;

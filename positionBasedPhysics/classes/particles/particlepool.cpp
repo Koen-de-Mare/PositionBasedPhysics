@@ -4,18 +4,10 @@ particlePool::particlePool(const int& initialParticlePoolSize) {
     initialize(initialParticlePoolSize);
 }
 
-
-
-
-//THIS LINE!!! (seems to be really important in assignment, find out how and why)<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 particlePool::particlePool(const particlePool& newValue) {
+    clear();
     *this = newValue;
 }
-
-
-
-
-
 
 particlePool::~particlePool() {
     clear();
@@ -161,29 +153,18 @@ void particlePool::initialize(const int& newParticlePoolSize) {
 }
 
 particlePool& particlePool::operator= (const particlePool& newValue) {
-    //std::cout << "assigning...\n";
-
     if (this == &newValue) {
         return *this;
     }
 
-    clear();
-
-    //std::cout << "test1\n";
-
     if (particlePoolSize != newValue.particlePoolSize) {
-        //std::cout << "newValue.size: " << newValue.particlePoolSize << std::endl;
         initialize(newValue.particlePoolSize);
     }
-
-    //std::cout << "test2\n";
 
     for (int index = 0; index < particlePoolSize; index++) {
         myParticlePoolFlag[index] = newValue.myParticlePoolFlag[index];
         myParticlePool[index] = newValue.myParticlePool[index];
     }
-
-    //std::cout << "assigning completed!\n";
 
     return *this;
 }

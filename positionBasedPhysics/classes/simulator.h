@@ -32,8 +32,6 @@ class simulator {
         particlePool tP;        //state after projection
         particlePool t1;        //state after relaxation
         particlePool tBuffer;   //temporal buffer
-
-        int particlePoolSize;
     private:
         int fullIterationsNumber = 1;
         int projectionIterationsNumber = 1;

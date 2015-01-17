@@ -13,7 +13,7 @@ void simulator::simulate(worldstate* providedWorld, timeUnit deltaTime) {
         std::cout << "ERROR! the deltaTime provided for the simulator is invalid!" << std::endl;
         return;
     }
-    std::cout << "simulate call\n";
+
     timeUnit tempTime = deltaTime / fullIterationsNumber;
 
     for (int i = 0; i < projectionIterationsNumber; i++) {
@@ -22,38 +22,24 @@ void simulator::simulate(worldstate* providedWorld, timeUnit deltaTime) {
 }
 
 void simulator::virtualSimulate(worldstate* providedWorld, timeUnit deltaTime) {
-    std::cout << "virtual simulate call\ninitializing...\n";
     world = providedWorld;
 
-    t0 = world->getParticlePool();
-    tP = t0;
-
-    std::cout << "initialized!\nprojecting...\n";
+    tP = t0 = world->getParticlePool();
 
     timeUnit tempTime = deltaTime / projectionIterationsNumber;
     for (int i = 0; i < projectionIterationsNumber; i++) {
         project(tempTime);
     }
 
-    std::cout << "projected!\npreparing buffers...\n";
-
     t1 = tP;
-
-    std::cout << "relaxing constraints...\n";
 
     for (int i = 0; i < relaxationIterationsNumber; i++) {
         Relax();
     }
 
-    std::cout << "constraint relaxation completed!\nintegrating...\n";
-
     integrate(deltaTime);
 
-    std::cout << "integrating finished\n";
-
     world->setParticlePool(t1);
-
-    std::cout << "finished";
 
     world = nullptr;
 }
@@ -94,7 +80,7 @@ void simulator::project(timeUnit deltaTime) {       //writes results to tP
     }
 
     //put this loop somewhere else too
-    for (int index = 0; index < world->getConstraintPoolSize(); index++) {
+    for (int index = 0; index < t0.getParticlePoolSize(); index++) {
         tP.setPosition(index, tP.getPosition(index) + tP.getVelocity(index) * deltaTime + tP.getAcceleration(index) * 0.5 * deltaTime * deltaTime);
         tP.setVelocity(index, tP.getVelocity(index) + tP.getAcceleration(index) * deltaTime);
     }
@@ -112,12 +98,12 @@ void simulator::Relax() {                           //writes results to t1
 }
 
 void simulator::integrate(timeUnit deltaTime) {     //writes results to t1
-    for (int index = 0; index < particlePoolSize; index++) {
-        #if true
-        t1.setVelocity(index, (t1.getPosition(index) - t0.getPosition(index)) / deltaTime);
+    for (int index = 0; index < t0.getParticlePoolSize(); index++) {
+        #if false
+            t1.setVelocity(index, (t1.getPosition(index) - t0.getPosition(index)) / deltaTime);
         #else
-        t1.setVelocity(index, (t1.getPosition(index) - t0.getPosition(index)) / deltaTime * 2 - t0.getVelocity(index));
-        t1.setAcceleration(index, (t1.getVelocity(index) - t0.getVelocity(index)) / deltaTime);
+            t1.setVelocity(index, (t1.getPosition(index) - t0.getPosition(index)) / deltaTime * 2 - t0.getVelocity(index));
+            t1.setAcceleration(index, (t1.getVelocity(index) - t0.getVelocity(index)) / deltaTime);
         #endif
     }
 }

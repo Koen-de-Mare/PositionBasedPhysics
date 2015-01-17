@@ -1,7 +1,5 @@
 #include <iostream>
 
-#include <vector>
-
 #include "worldstate.h"
 #include "simulator.h"
 #include "particles/particle.h"
@@ -16,6 +14,7 @@ using namespace std;
 using vectorType = vector2D;
 
 int main() {
+
     cout << "Hello, world!" << endl << endl;
 
     worldstate* myWorldstate = new worldstate();
@@ -33,13 +32,13 @@ int main() {
     vectorType tempVector (1, 0);
 
     particle tempParticle;
-    tempParticle.setVelocity(tempVector);   //1,0
-    tempParticle.setPosition(tempVector);   //1,0
+    tempParticle.setVelocity(tempVector);       //1,0
+    tempParticle.setPosition(tempVector);       //1,0
     particle1 = myWorldstate->addParticle(tempParticle);
     tempVector.clear();
 
-    tempParticle.setPosition(tempVector);   //0, 0
-    tempParticle.setVelocity(tempVector);   //0, 0
+    tempParticle.setPosition(tempVector);       //0, 0
+    tempParticle.setVelocity(tempVector);       //0, 0
     particle2 = myWorldstate->addParticle(tempParticle);
 
     cout << endl;

@@ -20,6 +20,7 @@ class particlePool;
 class worldstate {
     public:
         worldstate();
+        worldstate(const worldstate& newValue);
         virtual ~worldstate();
 
         particle getParticle(const int& index);
@@ -39,7 +40,6 @@ class worldstate {
         particlePool getParticlePool() const;
         void setParticlePool(const particlePool& newParticlePool);
 
-        int getParticlePoolSize() const;
         int getSoftforcePoolSize() const;
         int getConstraintPoolSize() const;
 
