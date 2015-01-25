@@ -13,9 +13,9 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add directory="classes" />
-					<Add directory="classes/constraints" />
-					<Add directory="classes/particles" />
+					<Add directory="posBased" />
+					<Add directory="posBased/constraints" />
+					<Add directory="posBased/particles" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -37,27 +37,27 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
-		<Unit filename="classes/constraints/constraint.cpp" />
-		<Unit filename="classes/constraints/constraint.h" />
-		<Unit filename="classes/constraints/distanceconstraint.cpp" />
-		<Unit filename="classes/constraints/distanceconstraint.h" />
-		<Unit filename="classes/constraints/positionconstraint.cpp" />
-		<Unit filename="classes/constraints/positionconstraint.h" />
-		<Unit filename="classes/particles/particle.cpp" />
-		<Unit filename="classes/particles/particle.h" />
-		<Unit filename="classes/particles/particlepool.cpp" />
-		<Unit filename="classes/particles/particlepool.h" />
-		<Unit filename="classes/simulator.cpp" />
-		<Unit filename="classes/simulator.h" />
-		<Unit filename="classes/softforces/softforce.cpp" />
-		<Unit filename="classes/softforces/softforce.h" />
-		<Unit filename="classes/vector/vector2d.cpp" />
-		<Unit filename="classes/vector/vector2d.h" />
-		<Unit filename="classes/vector/vector3d.cpp" />
-		<Unit filename="classes/vector/vector3d.h" />
-		<Unit filename="classes/worldstate.cpp" />
-		<Unit filename="classes/worldstate.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="posBased/constraints/constraint.cpp" />
+		<Unit filename="posBased/constraints/constraint.h" />
+		<Unit filename="posBased/constraints/distanceconstraint.cpp" />
+		<Unit filename="posBased/constraints/distanceconstraint.h" />
+		<Unit filename="posBased/constraints/positionconstraint.cpp" />
+		<Unit filename="posBased/constraints/positionconstraint.h" />
+		<Unit filename="posBased/particles/particle.cpp" />
+		<Unit filename="posBased/particles/particle.h" />
+		<Unit filename="posBased/particles/particlepool.cpp" />
+		<Unit filename="posBased/particles/particlepool.h" />
+		<Unit filename="posBased/simulator.cpp" />
+		<Unit filename="posBased/simulator.h" />
+		<Unit filename="posBased/softforces/softforce.cpp" />
+		<Unit filename="posBased/softforces/softforce.h" />
+		<Unit filename="posBased/vector/vector2d.cpp" />
+		<Unit filename="posBased/vector/vector2d.h" />
+		<Unit filename="posBased/vector/vector3d.cpp" />
+		<Unit filename="posBased/vector/vector3d.h" />
+		<Unit filename="posBased/worldstate.cpp" />
+		<Unit filename="posBased/worldstate.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
