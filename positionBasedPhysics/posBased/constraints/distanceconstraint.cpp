@@ -63,13 +63,14 @@ void distanceconstraint::virtualResolveConstraint() {
 }
 
 bool distanceconstraint::getUsingParticle(const int& index) const {
+    bool tempBool = false;
     if (particle1 == index) {
-        return true;
+        tempBool = true;
     }
     if (particle2 == index) {
-        return true;
+        tempBool = true;
     }
-    return false;
+    return tempBool;
 }
 
 void distanceconstraint::changeIndex(const int& oldIndex, const int& newIndex) {

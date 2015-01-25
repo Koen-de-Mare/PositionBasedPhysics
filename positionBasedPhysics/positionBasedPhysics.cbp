@@ -16,6 +16,7 @@
 					<Add directory="posBased" />
 					<Add directory="posBased/constraints" />
 					<Add directory="posBased/particles" />
+					<Add directory="posBased/softforces" />
 				</Compiler>
 			</Target>
 			<Target title="Release">
@@ -27,6 +28,7 @@
 					<Add option="-O2" />
 					<Add directory="classes/constraints" />
 					<Add directory="classes/particles" />
+					<Add directory="posBased/softforces" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
@@ -50,8 +52,12 @@
 		<Unit filename="posBased/particles/particlepool.h" />
 		<Unit filename="posBased/simulator.cpp" />
 		<Unit filename="posBased/simulator.h" />
+		<Unit filename="posBased/softforces/gravity.cpp" />
+		<Unit filename="posBased/softforces/gravity.h" />
 		<Unit filename="posBased/softforces/softforce.cpp" />
 		<Unit filename="posBased/softforces/softforce.h" />
+		<Unit filename="posBased/softforces/spring.cpp" />
+		<Unit filename="posBased/softforces/spring.h" />
 		<Unit filename="posBased/vector/vector2d.cpp" />
 		<Unit filename="posBased/vector/vector2d.h" />
 		<Unit filename="posBased/vector/vector3d.cpp" />
