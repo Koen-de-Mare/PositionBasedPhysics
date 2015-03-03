@@ -1,7 +1,7 @@
 #ifndef SOFTFORCE_H
 #define SOFTFORCE_H
 
-#include <math.h>
+#include <cmath>
 
 #include <iostream>
 
@@ -17,7 +17,7 @@ class softforce {
     public:
         softforce();
         virtual ~softforce();
-        void applySoftforce(particlePool* const newInBuffer, particlePool* newOutBuffer);
+        void applySoftforce(particlePool& newInBuffer, particlePool& newOutBuffer);
         virtual bool getUsingParticle(const int& index) const =0;
         virtual void changeIndex(const int& oldIndex, const int& newIndex) =0;
     protected:
@@ -28,6 +28,7 @@ class softforce {
         unit getDistance(const int& particleIndex1, const int& particleIndex2) const;
         const particle getParticle(const int& particleIndex) const;
         float getMass(const int& particleIndex) const;
+        vectorType getVelocity(const int& particleIndex) const;
 
         void applyForce(const int& particleIndex, vectorType force);
     private:

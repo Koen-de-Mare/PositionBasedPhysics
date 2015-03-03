@@ -1,7 +1,7 @@
 #ifndef GRAVITY_H
 #define GRAVITY_H
 
-#include <softforce.h>
+#include <softforces/softforce.h>
 
 
 class gravity : public softforce {

@@ -19,7 +19,9 @@ void gravity::changeIndex(const int& oldIndex, const int& newIndex) {
 
 void gravity::virtualApplySoftforce() {
     for (int i = 0; i < getPoolSize(); i++) {
-        vectorType force = direction * gravitation * getMass(i);
-        applyForce(i, force);
+        if (getMass(i) != INFINITY) {
+            vectorType force = direction * gravitation * getMass(i);
+            applyForce(i, force);
+        }
     }
 }

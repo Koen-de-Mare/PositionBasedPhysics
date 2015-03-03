@@ -13,12 +13,13 @@ class vector3D {
         unit getX() const;
         unit getY() const;
         unit getZ() const;
-        void normalize();
+        vector3D normalize();
         void setX(const unit& newX);
         void setY(const unit& newY);
         void setZ(const unit& newZ);
         void set(const unit& newX, const unit& newY, const unit& newZ);
         void clear();
+        unit dot(const vector3D& otherVector) const;
         vector3D operator + (const vector3D& otherVector) const;
         vector3D operator - (const vector3D& otherVector) const;
         vector3D operator * (const unit& factor) const;
